@@ -7,7 +7,7 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * Neriyel Reyes. I like to crochet.
-* ...
+* ...Tommy Phuong. I like food.
 * ...
 	
 ## 3. Technologies and Resources Used
@@ -54,7 +54,7 @@ It has the following subfolders and files:
 ├── styles                   # Folder for styles
     /blah.css                # 
 
-Tommy made this line. IT'S LIT
+
 
 ```
 
