@@ -1,5 +1,32 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(36, 36, 36);
+    background-color: #242424;
+}
+
+.navbar {
+    background-color:#FFD700;
+}
+
+.btn {
+    color: black;
+    border: solid 1.5px;
+}
+
+.btn:hover {
+    background-color: black;
+    color: #FFD700;
+}
+
+.btn-lg {
+    background-color: #37d0ff;
+}
+
+.btn-lg:hover {
+    background-color: #000000;
+    color: #37d0ff;
+}
+
+#one_up {
+    color: #FFD700;
 }
