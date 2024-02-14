@@ -1,32 +1,53 @@
+/* 
+    Colour Palette
+
+    Dark Blue:   #0D1321
+    Medium Blue: #1D2D44
+    Blue:        #3E5C76
+    Light Blue:  #748CAB
+    White:       #F0EBD8
+    #FCBF49
+*/
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #242424;
+    background-color: #0D1321;
+}
+
+.container {
+    background-color: #1D2D44;
+}
+
+.navbar-brand {
+    color: white;
 }
 
 .navbar {
-    background-color:#FFD700;
+    background-color: #1D2D44;
+}
+
+.nav-link {
+    color: white;
 }
 
 .btn {
-    color: black;
+    color: white;
     border: solid 1.5px;
 }
 
 .btn:hover {
-    background-color: black;
-    color: #FFD700;
+    background-color: white;
+    color: black;
 }
 
 .btn-lg {
-    background-color: #37d0ff;
+    background-color: #FCBF49;
+    color: #0D1321;
 }
 
 .btn-lg:hover {
-    background-color: #000000;
-    color: #37d0ff;
+    background-color: white;
+    color: #1D2D44;
 }
 
-#one_up {
-    color: #FFD700;
-}
