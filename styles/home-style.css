@@ -40,6 +40,8 @@ body {
 
 .nav-link {
     color: white;
+    padding-bottom: 2px;
+    padding-left: 4px !important;
 }
 
 .nav-link:hover {
@@ -67,6 +69,15 @@ body {
     border: solid #FCBF49;
 }
 
+.fa-solid {
+    color: white;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+}
 
 
 

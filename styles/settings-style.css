@@ -1,0 +1,80 @@
+/* 
+    Colour Palette
+
+    Dark Blue:   #0D1321
+    Medium Blue: #1D2D44
+    Blue:        #3E5C76
+    Light Blue:  #748CAB
+    White:       #F0EBD8
+    Yellow:      #FCBF49
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0D1321;
+}
+
+.radio-canada {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:"width" 100;
+}
+
+.container {
+  background-color: #1D2D44;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color:#748CAB;
+}
+
+.navbar {
+  background-color: #1D2D44;
+}
+
+.nav-link {
+  color: white;
+  padding-bottom: 2px;
+  padding-left: 4px !important;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: white;
+}
+.btn {
+  color: white;
+  border: solid 1.5px;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn-lg {
+  background-color: #FCBF49;
+  color: #0D1321;
+}
+
+.btn-lg:hover {
+  background-color: white;
+  color: #1D2D44;
+  border: solid #FCBF49;
+}
+
+.fa-solid {
+  color: white;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
