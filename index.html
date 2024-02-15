@@ -26,33 +26,35 @@
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
-    <nav class="navbar navbar-expand-lg radio-canada">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark radio-canada">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Project Exce</a>
+          <nav class="navbar">
+            <a class="navbar-brand" href="#">
+              <img src="./images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+              Project Exce
+            </a>
+          </nav>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="#">Home!</a>
+                <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Profile</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+                  More
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Friends</a></li>
+                  <li><a class="dropdown-item" href="#">Schedule</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -67,6 +69,7 @@
         </div>
       </nav>
 
+      <!-- HERO -->
       <div class="container my-5 radio-canada">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
@@ -78,7 +81,7 @@
             </div>
           </div>
           <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-              <img class="rounded-lg-3" src="images/fitness.jpg" alt="" width="647">
+              <img class="rounded-lg-3 img-fluid" src="images/fitness.jpg" alt="" width="647">
           </div>
         </div>
       </div>
