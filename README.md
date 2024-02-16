@@ -1,4 +1,4 @@
-# Project Ex
+# Project Exce
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
@@ -40,22 +40,25 @@ What we'd like to build in the future:
 Content of the project folder:
 
 ```
- Top level of project folder: 
-├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+Top level of project folder: 
+├── .gitignore/                    git ignore file
+├── landing-page.html/             landing HTML file, what you see when you come to the site
+├── profile-page.html/             profile HTML file, where to manage and edit your profile stats
+├── schedule-page.htlm/            schedule HTML file, where to schedule workouts and personal plans
+├── settings-page.html/            settings HTML file, where to edit any settings you might want to change
+└── README.md/
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
-
-
-
+├── .git/                          git transmit
+├── .vscode
+    ├── settings.json
+├── images/                        images for businesses
+    ├── fitness.jpg/               acknowledge source
+├── scripts/                       scripts unzipped
+    └── script.js/                
+├── styles/                        style files
+    ├── home-style.css/           
+    ├── profile-style.css/        
+    ├── schedule-style.css/       
+    └── settings-style.css/       
 ```
-
-
