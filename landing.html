@@ -21,6 +21,17 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Other libraries go here -->
     <link
@@ -38,70 +49,7 @@
 
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark radio-canada">
-      <div class="container-fluid">
-        <nav class="navbar">
-          <a class="navbar-brand" href="#">
-            <img
-              src="./images/projectExceDummyLogo.png"
-              width="50"
-              height="30"
-              class="d-inline-block align-top"
-              alt=""
-            />
-            Project Exce
-          </a>
-        </nav>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <aside class="fa-solid fa-house"></aside>
-              <a
-                class="nav-link active text-white"
-                aria-current="page"
-                href="landing-page.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <aside class="fa-solid fa-user"></aside>
-              <a class="nav-link" href="profile-page.html">Profile</a>
-            </li>
-            <li class="nav-item">
-              <aside class="fa-solid fa-calendar"></aside>
-              <a class="nav-link" href="schedule-page.html">Schedule</a>
-            </li>
-            <li class="nav-item">
-              <aside class="fa-solid fa-gear"></aside>
-              <a class="nav-link" href="settings-page.html">Settings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+    <nav id="navbar"></nav>
 
     <!-- HERO -->
     <div class="container my-5 radio-canada">
@@ -139,6 +87,6 @@
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/skeleton.js"></script>
   </body>
 </html>

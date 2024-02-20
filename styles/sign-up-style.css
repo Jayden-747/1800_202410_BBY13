@@ -1,0 +1,75 @@
+/*
+    Colour Palette
+------------------------
+| Dark Blue:   #0D1321 |
+| Medium Blue: #1D2D44 |
+| Blue:        #3E5C76 |
+| Light Blue:  #748CAB |
+| White:       #F0EBD8 |
+| Yellow:      #FCBF49 |
+------------------------
+
+*/
+
+body {
+  color: white;
+}
+
+.container {
+  background-color: #1d2d44;
+  width: 85vw;
+  height: fit-content;
+  margin: auto;
+  margin-top: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 4px;
+  border: solid white 1px;
+}
+
+.header {
+  border-bottom: solid;
+  padding-left: 8%;
+}
+
+.login-credentials {
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0% 8% 0% 8%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.buttons {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.sign-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcbf49;
+  color: #0d1321;
+  width: 80px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.sign-up:hover {
+  background-color: white;
+  color: #1d2d44;
+  border: solid #fcbf49;
+}
+
+.log-in:hover {
+  text-decoration: underline;
+}
