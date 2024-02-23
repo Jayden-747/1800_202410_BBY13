@@ -73,7 +73,7 @@ a {
 .sign-up:hover {
   background-color: white;
   color: #1d2d44;
-  border: solid #fcbf49;
+  border: 1px solid #fcbf49;
 }
 
 .log-in:hover {
