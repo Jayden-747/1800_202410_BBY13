@@ -68,7 +68,6 @@ body {
 .btn-lg:hover {
   background-color: white;
   color: #1d2d44;
-  border: solid #fcbf49;
 }
 
 .fa-solid {
@@ -79,4 +78,8 @@ li {
   display: flex;
   align-items: center;
   margin-right: 16px;
+}
+
+.hero-border {
+  border-radius: 10px;
 }

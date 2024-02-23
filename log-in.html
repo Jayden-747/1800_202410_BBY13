@@ -64,7 +64,7 @@
     <!-- LOGIN HERO -->
     <div class="container">
       <div class="header">
-        <h3>Sign Up</h3>
+        <h3>Log In</h3>
       </div>
       <form class="login-credentials">
         <label>Enter your Email: </label>
@@ -72,9 +72,11 @@
         <label>Enter your Password:</label>
         <input type="password" placeholder="password" />
         <div class="buttons">
-          <span class="sign-up"><a>Log-In</a></span>
+          <button type="button" onclick="location.href='#'" class="sign-up">
+            Log-In
+          </button>
           <span>or</span>
-          <span class="log-in"><a>Sign-Up</a></span>
+          <button type="button" class="log-in">Sign-Up</button>
         </div>
       </form>
     </div>
@@ -83,5 +85,7 @@
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/firebaseAPI-bby13.js"></script>
+    <script src="./scripts/authentication.js"></script>
   </body>
 </html>
