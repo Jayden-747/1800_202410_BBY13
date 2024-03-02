@@ -63,29 +63,14 @@
 
     <!-- LOGIN HERO -->
     <div class="container">
-      <div class="header">
-        <h3>Log In</h3>
-      </div>
-      <form class="login-credentials">
-        <label>Enter your Email: </label>
-        <input type="email" placeholder="E-mail" />
-        <label>Enter your Password:</label>
-        <input type="password" placeholder="password" />
-        <div class="buttons">
-          <button type="button" onclick="location.href='#'" class="sign-up">
-            Log-In
-          </button>
-          <span>or</span>
-          <button type="button" class="log-in">Sign-Up</button>
-        </div>
-      </form>
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
     </div>
-
     <!-- Your own JavaScript functions go here    -->
 
     <!-- Link to scripts of your own -->
-    <script src="./js/skeleton.js"></script>
     <script src="./js/firebaseAPI-bby13.js"></script>
+    <script src="./js/skeleton.js"></script>
     <script src="./js/authentication.js"></script>
   </body>
 </html>
