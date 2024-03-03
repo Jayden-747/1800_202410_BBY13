@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  background-image: linear-gradient(#1d2d44, #0d1321);
+  background-color: transparent;
   width: 85vw;
   height: fit-content;
   margin: auto;
@@ -24,58 +24,10 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 4px;
-  border-image: linear-gradient(bottom, #1d2d44, #0d1321);
 }
 
 @media only screen and (min-width: 750px) {
   .container {
     width: 540px;
   }
-}
-
-.header {
-  border-bottom: solid rgba(255, 255, 255, 0.2);
-  padding-left: 8%;
-}
-
-.login-credentials {
-  height: 230px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 0% 8% 0% 8%;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-.buttons {
-  width: 180px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.sign-up {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fcbf49;
-  color: #0d1321;
-  width: 80px;
-  height: 30px;
-  border-radius: 4px;
-}
-
-.sign-up:hover {
-  background-color: white;
-  color: #1d2d44;
-  border: 1px solid #fcbf49;
-}
-
-.log-in:hover {
-  text-decoration: underline;
 }

@@ -1,3 +1,6 @@
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
@@ -29,3 +32,6 @@ var uiConfig = {
   // Privacy policy url.
   privacyPolicyUrl: "<your-privacy-policy-url>",
 };
+
+// The start method will wait until the DOM is loaded.
+ui.start("#firebaseui-auth-container", uiConfig);
