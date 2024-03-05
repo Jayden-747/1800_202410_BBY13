@@ -16,6 +16,7 @@ body {
   padding: 0;
   background-color: #0d1321;
   color: white;
+  padding-top: 94px;
 }
 
 .radio-canada {
@@ -39,6 +40,7 @@ body {
 
 .navbar {
   background-color: #1d2d44;
+  z-index: 2;
 }
 
 .nav-link {
@@ -93,6 +95,14 @@ h5 {
   height: fit-content;
   background-color: #1d2d44;
   border-radius: 10px;
+  max-width: 1000px;
+}
+
+.setting-option {
+  padding: 10px 15px 10px 15px;
+  border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
+  display: flex;
+  justify-content: space-between;
 }
 
 .setting-option:last-child {
@@ -104,18 +114,10 @@ h5 {
   border-bottom: solid rgb(255, 255, 255);
 }
 
-.setting-option {
-  padding: 10px 5px 10px 5px;
-  border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
-  display: flex;
-  justify-content: space-between;
-}
-
 .nav {
-  top: 72px;
+  top: 56px;
   background-color: #0d1321;
-}
-
-.top-margin {
-  margin-top: 120px;
+  max-width: 1000px;
+  margin: auto;
+  z-index: 1;
 }
