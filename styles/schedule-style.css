@@ -88,7 +88,7 @@ li {
   padding-top: 1em;
 }
 
-
+/* title page */
 #calendar {
     max-width: 800px;
     margin: 40px auto;
@@ -97,6 +97,7 @@ li {
 
 }
 
+/* Below is the css for calendar modal */
 .fc-event {
     border: 1px solid #eee !important;
 }
