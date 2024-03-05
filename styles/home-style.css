@@ -11,6 +11,16 @@
 
 */
 
+.main-grid {
+  display: grid;
+  grid-template-rows: 5vh 35vh 40vh;
+  padding: 5%
+}
+
+.custom-table {
+  background-color: #0D1321;
+}
+
 body {
   margin: 0;
   padding: 0;
