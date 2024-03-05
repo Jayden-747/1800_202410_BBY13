@@ -14,18 +14,19 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0D1321;
+  background-color: #0d1321;
+  padding-top: 20px;
 }
 
 .radio-canada {
   font-family: "Radio Canada", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:"width" 100;
+  font-variation-settings: "width" 100;
 }
 
 .container {
-  background-color: #1D2D44;
+  background-color: #1d2d44;
 }
 
 .navbar-brand {
@@ -33,11 +34,11 @@ body {
 }
 
 .navbar-brand:hover {
-  color:#748CAB;
+  color: #748cab;
 }
 
 .navbar {
-  background-color: #1D2D44;
+  background-color: #1d2d44;
 }
 
 .nav-link {
@@ -61,14 +62,14 @@ body {
 }
 
 .btn-lg {
-  background-color: #FCBF49;
-  color: #0D1321;
+  background-color: #fcbf49;
+  color: #0d1321;
 }
 
 .btn-lg:hover {
   background-color: white;
-  color: #1D2D44;
-  border: solid #FCBF49;
+  color: #1d2d44;
+  border: solid #fcbf49;
 }
 
 .fa-solid {
@@ -81,7 +82,7 @@ li {
   margin-right: 16px;
 }
 
-#pic{
+#pic {
   background-color: white;
   height: 175px;
   width: 175px;
@@ -93,22 +94,21 @@ li {
   margin-top: 50px;
 }
 
-#stats{
-  background-color: #1D2D44;
+#stats {
+  background-color: #1d2d44;
   height: 450px;
   padding-top: 20px;
   margin-top: 2em;
-  
 }
 
-.progress{
+.progress {
   margin: 1.5em;
 }
-.progress-bar{
-  background-color: #64F58D;
+.progress-bar {
+  background-color: #64f58d;
 }
 
-.bar-title{
+.bar-title {
   color: white;
   text-align: center;
 }
