@@ -81,7 +81,34 @@ li {
   margin-right: 16px;
 }
 
+#pic{
+  background-color: white;
+  height: 175px;
+  width: 175px;
+  border-radius: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+}
 
+#stats{
+  background-color: #1D2D44;
+  height: 450px;
+  padding-top: 20px;
+  margin-top: 2em;
+  
+}
 
+.progress{
+  margin: 1.5em;
+}
+.progress-bar{
+  background-color: #FCBF49;
+}
 
-
+.bar-title{
+  color: white;
+  text-align: center;
+}
