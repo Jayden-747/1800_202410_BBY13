@@ -70,7 +70,7 @@
     <h3 id="title">Schedule Workouts</h3>
     <div id="calendar"></div>
 
-    <!-- Add modal -->
+    <!-- Modal being added for calender and form -->
 
     <div
       class="modal fade edit-form"
@@ -79,10 +79,11 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
+    <!-- adds session button -->
       <div class="modal-dialog modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header border-bottom-0">
-            <h5 class="modal-title" id="modal-title">Add Event</h5>
+            <h5 class="modal-title" id="modal-title">Add Session</h5>
             <button
               type="button"
               class="btn-close"
@@ -90,6 +91,7 @@
               aria-label="Close"
             ></button>
           </div>
+          <!-- creates session form -->
           <form id="myForm">
             <div class="modal-body">
               <div
@@ -157,7 +159,7 @@
       </div>
     </div>
 
-    <!-- Delete Modal -->
+    <!-- Delete Modal for removing an session-->
     <div
       class="modal fade"
       id="delete-modal"
@@ -179,8 +181,9 @@
               aria-label="Close"
             ></button>
           </div>
+          <!-- promps confirmation for deleting session -->
           <div class="modal-body text-center" id="delete-modal-body">
-            Are you sure you want to delete the event?
+            Are you sure you want to delete the session?
           </div>
           <div class="modal-footer border-0">
             <button
