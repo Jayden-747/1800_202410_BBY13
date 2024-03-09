@@ -1,5 +1,7 @@
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// Grabs the modal div
+var modal = document.getElementById("username-modal");
 
 var uiConfig = {
   callbacks: {
@@ -7,7 +9,29 @@ var uiConfig = {
       // User successfully signed in.
       // Return type determines whether we continue the redirect automatically
       // or whether we leave that to developer to handle.
-      return true;
+      var user = authResult.user;
+
+      if (authResult.additionalUserInfo.isNewUser) {
+        db.collection("users").doc(user.uid).set({
+          name: user.displayName,
+          email: user.email,
+        });
+        console.log("New user added to firestore");
+        modal.style.display = "block";
+        document
+          .getElementById("submit")
+          .addEventListener("click", function () {
+            db.collection("users")
+              .doc(user.uid)
+              .update({
+                username: document.getElementById("user-input").value,
+              });
+            console.log("username set");
+            window.location.assign("home.html");
+          });
+      } else {
+        return true;
+      }
     },
     uiShown: function () {
       // The widget is rendered.

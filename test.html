@@ -39,12 +39,7 @@
       rel="stylesheet"
     />
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/home-style.css" />
-    <script
-      src="https://kit.fontawesome.com/905cc044ff.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./styles/sign-up-style.css" />
+    <!-- <link rel="stylesheet" href="./styles/profile-style.css" /> -->
     <link rel="stylesheet" href="./styles/modal-style.css" />
     <script
       src="https://kit.fontawesome.com/905cc044ff.js"
@@ -55,14 +50,7 @@
 
   <body>
     <!-- NAVBAR -->
-    <nav id="navbar"></nav>
-
-    <!-- LOGIN HERO -->
-    <div class="container">
-      <!-- Login Placeholder-->
-      <div id="firebaseui-auth-container"></div>
-      <div id="loader">Loading...</div>
-    </div>
+    <!-- <nav id="navbar"></nav> -->
 
     <!-- MODAL FOR USERNAME -->
     <div id="username-modal" class="modal">
@@ -70,26 +58,22 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2>Please Enter a Username</h2>
+          <span class="close">&times;</span>
         </div>
         <div class="modal-input">
-          <input
-            id="user-input"
-            class="user-input"
-            type="text"
-            placeholder="Enter Username"
-          />
+          <input class="user-input" type="text" placeholder="Enter Username" />
         </div>
         <div class="modal-footer">
-          <span id="tooltip">You can edit your user name later in the settings page.</span>
-          <button id="submit" class="submit-btn" type="submit">Submit</button>
+          <button class="submit-btn">Submit</button>
         </div>
       </div>
     </div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
     <script src="./js/firebaseAPI-bby13.js"></script>
     <script src="./js/skeleton.js"></script>
-    <script src="./js/modal.js"></script>
-    <script src="./js/authentication.js"></script>
   </body>
 </html>

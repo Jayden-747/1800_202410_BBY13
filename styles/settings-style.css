@@ -11,6 +11,7 @@
 
 */
 
+/* #region DEFAULT PAGE SETTINGS */
 body {
   margin: 0;
   padding: 0;
@@ -53,6 +54,7 @@ body {
   text-decoration: underline;
   color: white;
 }
+
 .btn {
   color: white;
   border: solid 1.5px;
@@ -77,7 +79,9 @@ body {
 .fa-solid {
   color: white;
 }
+/* #endregion DEFAULT PAGE SETTINGS */
 
+/* #region SETTINGS PAGE LAYOUT */
 li {
   display: flex;
   align-items: center;
@@ -86,6 +90,11 @@ li {
 
 h5 {
   margin: 0;
+}
+
+.setting-header {
+  padding: 10px 10px 8px 10px;
+  border-bottom: solid rgb(255, 255, 255);
 }
 
 .setting-section {
@@ -101,17 +110,24 @@ h5 {
 .setting-option {
   padding: 10px 15px 10px 15px;
   border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
-  display: flex;
-  justify-content: space-between;
+}
+
+.setting-option:hover {
+  background-color: #40536d;
 }
 
 .setting-option:last-child {
   border: hidden;
 }
 
-.setting-header {
-  padding: 10px 10px 8px 10px;
-  border-bottom: solid rgb(255, 255, 255);
+.setting-option:last-child:hover {
+  border-radius: 0px 0px 4px 4px;
+}
+
+.option-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav {
@@ -121,3 +137,71 @@ h5 {
   margin: auto;
   z-index: 1;
 }
+
+.dropdown-icon {
+  display: flex;
+  align-items: center;
+  transform: rotate(90deg);
+}
+/* #endregion SETTINGS PAGE LAYOUT */
+
+/* #region CHANGE USERNAME SETTING */
+.modal-container {
+  display: none;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.modal-content {
+  background-color: #1d2d44;
+  padding: 20px;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.user-input {
+  all: unset;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.modal-header {
+  all: unset;
+}
+
+.modal-input {
+  padding: 10px 10px;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.418);
+}
+
+.modal-footer {
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  all: unset;
+  color: black;
+  background-color: #fcbf49;
+  border-radius: 4px;
+  padding: 2px 5px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: white;
+}
+
+#tooltip {
+  font-size: 12px;
+  width: 50%;
+}
+
+/* #endregion CHANGE USERNAME SETTING */

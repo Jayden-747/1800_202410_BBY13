@@ -1,0 +1,93 @@
+/*
+    Colour Palette
+------------------------
+| Dark Blue:   #0D1321 |
+| Medium Blue: #1D2D44 |
+| Blue:        #3E5C76 |
+| Light Blue:  #748CAB |
+| White:       #F0EBD8 |
+| Yellow:      #FCBF49 |
+------------------------
+
+*/
+
+/* modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  color: white;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.user-input {
+  all: unset;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.modal-header {
+  all: unset;
+}
+
+.modal-content {
+  background-color: #1d2d44;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.modal-input {
+  padding: 10px 10px;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.418);
+}
+
+.modal-footer {
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  all: unset;
+  color: black;
+  background-color: #fcbf49;
+  border-radius: 4px;
+  padding: 2px 5px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: white;
+}
+
+#tooltip {
+  font-size: 12px;
+  width: 50%;
+}
