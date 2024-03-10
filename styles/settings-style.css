@@ -17,7 +17,7 @@ body {
   padding: 0;
   background-color: #0d1321;
   color: white;
-  padding-top: 94px;
+  padding-top: 100px;
 }
 
 .radio-canada {
@@ -110,10 +110,8 @@ h5 {
 .setting-option {
   padding: 10px 15px 10px 15px;
   border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
-}
-
-.setting-option:hover {
-  background-color: #40536d;
+  height: 45px;
+  overflow: hidden;
 }
 
 .setting-option:last-child {
@@ -131,7 +129,7 @@ h5 {
 }
 
 .nav {
-  top: 56px;
+  top: 72px;
   background-color: #0d1321;
   max-width: 1000px;
   margin: auto;
@@ -156,7 +154,6 @@ h5 {
   background-color: #1d2d44;
   padding: 20px;
   width: 80%;
-  border-radius: 4px;
 }
 
 .user-input {
@@ -182,7 +179,7 @@ h5 {
   border: none;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
 }
 
 .submit-btn {
