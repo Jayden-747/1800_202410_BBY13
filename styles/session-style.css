@@ -1,0 +1,18 @@
+#title{
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.form{
+    background-color: white;
+    height: 500px;
+    text-align: center;
+}
+#choose{
+    padding: 15px;
+}
+#drop{
+    width: 80%;
+
+}
