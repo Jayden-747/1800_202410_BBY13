@@ -50,13 +50,25 @@
   <body>
     <!-- NAVBAR -->
     <nav id="navbar"></nav>
-    <h3 id="title">Add an exercise you performed today!</h3>
     <div class="form">
-      <label id="choose">Choose an exercise:</label>
-      <select class="custom-select my-1 mr-sm-2" id="drop">
-        <option>1</option>
-      </select>
+      <h3 id="title">Add an exercise you performed today!</h3>
+        <label id="choose">Choose an exercise:</label>
+        <select class="custom-select my-1 mr-sm-2" id="drop">
+          <option>1</option>
+        </select>
+        <div id="setForm">
+          <label class="form-label" for="typeNumber">Sets: </label>
+          <input value="" type="number" class="typeNumber"/>
+        </div>
+        <div id="repForm">
+          <label class="form-label" for="typeNumber">Reps: </label>
+          <input value="" type="number" class="typeNumber"/>
+        </div>
+        <button type="button" class="btn" id="addButton">Add</button>
+
     </div>
+
+    
     
 
     <!---------------------------------------------->

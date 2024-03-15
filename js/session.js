@@ -58,6 +58,8 @@ function dataExercise() {
     });
 }
 
+
+//function to populate the dropdown menu with exercises from the database.
 function populateDrop () {
     const dropdown = document.getElementById('drop');
     dropdown.innerHTML = '<option value="">Select an option..</option>'
