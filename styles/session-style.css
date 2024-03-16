@@ -15,19 +15,25 @@
     max-width: 1000px;
     color: white;
     text-align: center;
-    
 }
-#choose{
-    padding: 15px;
+#form-container{
+   padding-left: 30px;
+   padding-right: 30px;
+   display: grid;  
 }
-#drop{
-    width: 80%;
-
+.form-label, #choose{
+    float: left;
 }
-.typeNumber{
-    text-align: center;
-    
+#drop, #setsInput, #repsInput{
+    width: 200px;
+    float: right;
 }
 #addButton{
     background-color: #FCBF49;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+/* div that includes both the label and input box */
+#repForm, #setForm, #chooseForm{
+    margin-top: 15px;
 }

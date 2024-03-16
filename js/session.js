@@ -83,3 +83,5 @@ function populateDrop () {
 }
 
 populateDrop();
+
+// Add event listener to the add button that stores exercise chosen and amount of sets and reps to a user

@@ -50,22 +50,26 @@
   <body>
     <!-- NAVBAR -->
     <nav id="navbar"></nav>
+    <!-- Session Form -->
     <div class="form">
       <h3 id="title">Add an exercise you performed today!</h3>
-        <label id="choose">Choose an exercise:</label>
-        <select class="custom-select my-1 mr-sm-2" id="drop">
-          <option>1</option>
-        </select>
+      <div id="form-container">
+        <div id="chooseForm">
+          <label id="choose">Choose an exercise:</label>
+          <select class="custom-select my-1 mr-sm-2" id="drop">
+            <option>1</option>
+          </select>
+        </div>
         <div id="setForm">
           <label class="form-label" for="typeNumber">Sets: </label>
-          <input value="" type="number" class="typeNumber"/>
+          <input value="" type="number" class="typeNumber" id="setsInput"/>
         </div>
         <div id="repForm">
           <label class="form-label" for="typeNumber">Reps: </label>
-          <input value="" type="number" class="typeNumber"/>
+          <input value="" type="number" class="typeNumber" id="repsInput"/>
         </div>
-        <button type="button" class="btn" id="addButton">Add</button>
-
+      </div>
+      <button type="button" class="btn" id="addButton">Add</button>
     </div>
 
     
