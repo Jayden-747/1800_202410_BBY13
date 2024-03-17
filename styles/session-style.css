@@ -1,11 +1,24 @@
-#title{
+/*
+    Colour Palette
+------------------------
+| Dark Blue:   #0D1321 |
+| Medium Blue: #1D2D44 |
+| Blue:        #3E5C76 |
+| Light Blue:  #748CAB |
+| White:       #F0EBD8 |
+| Yellow:      #FCBF49 |
+------------------------
+
+*/
+
+#title {
     color: white;
     text-align: center;
     padding: 20px;
     border-bottom: solid rgb(255, 255, 255);
 }
 
-.form{
+.form {
     width: 95%;
     margin: auto;
     margin-top: 30px;
@@ -16,24 +29,87 @@
     color: white;
     text-align: center;
 }
-#form-container{
-   padding-left: 30px;
-   padding-right: 30px;
-   display: grid;  
+
+#form-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    display: grid;
 }
-.form-label, #choose{
+
+.form-label,
+#choose {
     float: left;
 }
-#drop, #setsInput, #repsInput{
+
+#drop,
+#weightInput,
+#setsInput,
+#repsInput {
     width: 200px;
     float: right;
 }
-#addButton{
+
+#addButton {
     background-color: #FCBF49;
     margin-top: 30px;
     margin-bottom: 20px;
 }
+
 /* div that includes both the label and input box */
-#repForm, #setForm, #chooseForm{
+#weightForm,
+#repForm,
+#setForm,
+#chooseForm {
     margin-top: 15px;
+}
+
+/* scroll wheel below */
+
+.picker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    /* Set the desired height of the picker */
+    padding: 10px;
+}
+
+.option {
+    cursor: pointer;
+    /* Change cursor to a pointer (hand) when hovering over the option */
+    transition: background-color 0.3s ease;
+    /* Add a smooth transition effect */
+}
+
+.option:hover {
+    background-color: #0D1321;
+    /* Change background color to light gray when hovering */
+}
+
+.selected {
+    background-color: #3E5C76;
+    /* Example color for selected option */
+    color: white;
+
+}
+
+.sets,
+.reps {
+    flex: 1;
+    border: 1px solid #ccc;
+    height: 200px;
+    overflow-y: scroll;
+    /* Implements scroll wheel like behavior? */
+}
+
+.sets {
+    border-right: none;
+}
+
+.sets::-webkit-scrollbar,
+.reps::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar */
 }
