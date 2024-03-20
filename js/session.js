@@ -2,60 +2,113 @@ function dataExercise() {
     var exerRef = db.collection("exercises");
 
     exerRef.add({
-        name: "Sprints",
+        name: "Pylometrics",
         type: "Speed",
         points: 4
 
     });
 
     exerRef.add({
-        name: "Deadlift",
-        type: "Strength",
-        points: 4
-
-    });
-
-    exerRef.add({
-        name: "Barbell Bench Press",
+        name: "Lunges",
         type: "Strength",
         points: 3
 
     });
 
     exerRef.add({
-        name: "10 min Jog",
+        name: "Barbell Rows",
+        type: "Strength",
+        points: 3
+
+    });
+
+    exerRef.add({
+        name: "Barbell Shoulder Presses",
+        type: "Strength",
+        points: 3
+
+    });
+
+    exerRef.add({
+        name: "Cycling",
         type: "Stamina",
+        points: 3
+    });
+
+    exerRef.add({
+        name: "Swimming",
+        type: "Stamina",
+        points: 3
+    });
+
+    exerRef.add({
+        name: "Stair Masters",
+        type: "Stamina",
+        points: 4
+    });
+
+    exerRef.add({
+        name: "Elliptical",
+        type: "Stamina",
+        points: 2
+    });
+
+    exerRef.add({
+        name: "High Intensity Interval Training (HIIT)",
+        type: "Stamina",
+        points: 5
+
+    });
+
+    exerRef.add({
+        name: "Bicep curls",
+        type: "Strength",
         points: 2
 
     });
 
     exerRef.add({
-        name: "20 min Jog",
-        type: "Stamina",
-        points: 3
-
-    });
-
-    exerRef.add({
-        name: "30 min Jog",
-        type: "Stamina",
-        points: 4
-
-    });
-
-    exerRef.add({
-        name: "Squats",
+        name: "Skull Crushers",
         type: "Strength",
-        points: 4
-
+        points: 3
     });
 
     exerRef.add({
-        name: "Sled Push",
-        type: "Speed",
-        points: 4
-
+        name: "Dips",
+        type: "Strength",
+        points: 3
     });
+
+    exerRef.add({
+        name: "Pull Ups",
+        type: "Strength",
+        points: 5
+    });
+
+    exerRef.add({
+        name: "Chin Ups",
+        type: "Strength",
+        points: 5
+    });
+
+    exerRef.add({
+        name: "Overhead Tricep Extensions",
+        type: "Strength",
+        points: 3
+    });
+
+    exerRef.add({
+        name: "Push Ups",
+        type: "Strength",
+        points: 3
+    });
+    exerRef.add({
+        name: "Sit Ups",
+        type: "Strength",
+        points: 3
+    });
+
+    
 }
 
 
