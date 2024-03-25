@@ -1,61 +1,115 @@
+
 function dataExercise() {
     var exerRef = db.collection("exercises");
 
     exerRef.add({
-        name: "Sprints",
+        name: "Pylometrics",
         type: "Speed",
         points: 4
 
     });
 
     exerRef.add({
-        name: "Deadlift",
-        type: "Strength",
-        points: 4
-
-    });
-
-    exerRef.add({
-        name: "Barbell Bench Press",
+        name: "Lunges",
         type: "Strength",
         points: 3
 
     });
 
     exerRef.add({
-        name: "10 min Jog",
+        name: "Barbell Rows",
+        type: "Strength",
+        points: 3
+
+    });
+
+    exerRef.add({
+        name: "Barbell Shoulder Presses",
+        type: "Strength",
+        points: 3
+
+    });
+
+    exerRef.add({
+        name: "Cycling",
         type: "Stamina",
+        points: 3
+    });
+
+    exerRef.add({
+        name: "Swimming",
+        type: "Stamina",
+        points: 3
+    });
+
+    exerRef.add({
+        name: "Stair Masters",
+        type: "Stamina",
+        points: 4
+    });
+
+    exerRef.add({
+        name: "Elliptical",
+        type: "Stamina",
+        points: 2
+    });
+
+    exerRef.add({
+        name: "High Intensity Interval Training (HIIT)",
+        type: "Stamina",
+        points: 5
+
+    });
+
+    exerRef.add({
+        name: "Bicep curls",
+        type: "Strength",
         points: 2
 
     });
 
     exerRef.add({
-        name: "20 min Jog",
-        type: "Stamina",
-        points: 3
-
-    });
-
-    exerRef.add({
-        name: "30 min Jog",
-        type: "Stamina",
-        points: 4
-
-    });
-
-    exerRef.add({
-        name: "Squats",
+        name: "Skull Crushers",
         type: "Strength",
-        points: 4
-
+        points: 3
     });
 
     exerRef.add({
-        name: "Sled Push",
-        type: "Speed",
-        points: 4
-
+        name: "Dips",
+        type: "Strength",
+        points: 3
     });
+
+    exerRef.add({
+        name: "Pull Ups",
+        type: "Strength",
+        points: 5
+    });
+
+    exerRef.add({
+        name: "Chin Ups",
+        type: "Strength",
+        points: 5
+    });
+
+    exerRef.add({
+        name: "Overhead Tricep Extensions",
+        type: "Strength",
+        points: 3
+    });
+
+    exerRef.add({
+        name: "Push Ups",
+        type: "Strength",
+        points: 3
+    });
+    exerRef.add({
+        name: "Sit Ups",
+        type: "Strength",
+        points: 3
+    });
+
+    
 }
 
 
@@ -83,8 +137,6 @@ function populateDrop() {
 }
 
 populateDrop();
-
-// Add event listener to the add button that stores exercise chosen and amount of sets and reps to a user
 
 // SCROLL WHEEL FUNCTIONS:
 // generates (an array of) the options for sets and reps 
@@ -130,3 +182,38 @@ populatePicker('.sets', 1, 10, currentSet);
 const currentReps = document.getElementById('repsInput');
 populatePicker('.reps', 1, 99, currentReps);
 
+// Add event listener to the add button that stores exercise chosen and amount of sets and reps to a user
+
+// reference to user document that includes ALL user data 
+var currentUser
+
+function submitSession() {
+    console.log("inside submitSession");
+
+    // constants for the user's input values
+    let exerciseName = document.getElementById('drop').value;
+    let weightValue = document.getElementById('weightInput').value;
+    let setsValue = document.getElementById('setsInput').value;
+    let repsValue = document.getElementById('repsInput').value;
+
+    // NEED TO UPDATE BASED ON DB FILE STRUCTURE ON FIRESTORE
+    // Example of specifying the path to the subcollection:
+        // const parentDocRef = db.collection('parentCollection').doc(parentDocID);
+        // parentDocRef.collection(subcollectionName).add({ ..... })
+
+    // adds inputs to the user's "workouts" collection
+    // should i add an if 'user' else 'error: please sign in'?
+    db.collection('workouts').add({
+        exercise: exerciseName,
+        weight: weightValue,
+        sets: setsValue,
+        reps: repsValue
+    })
+        .then(function (docRef) {
+            console.log('Add Session written with ID: ', docRef.id);
+            // Clears the input fields after successful submission
+            document.getElementById('weightInput').value = '';
+            document.getElementById('setsInput').value = '';
+            document.getElementById('repsInput').value = '';
+        })
+}

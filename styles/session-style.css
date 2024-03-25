@@ -95,17 +95,20 @@
 
 }
 
+.picker {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
 .sets,
 .reps {
     flex: 1;
     border: 1px solid #ccc;
-    height: 200px;
+    height: 160px;
+    width: 80px;
     overflow-y: scroll;
     /* Implements scroll wheel like behavior? */
-}
-
-.sets {
-    border-right: none;
 }
 
 .sets::-webkit-scrollbar,
