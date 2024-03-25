@@ -1,3 +1,4 @@
+
 function dataExercise() {
     var exerRef = db.collection("exercises");
 
@@ -84,8 +85,6 @@ function populateDrop() {
 
 populateDrop();
 
-// Add event listener to the add button that stores exercise chosen and amount of sets and reps to a user
-
 // SCROLL WHEEL FUNCTIONS:
 // generates (an array of) the options for sets and reps 
 function generateOptions(start, end) {
@@ -130,3 +129,38 @@ populatePicker('.sets', 1, 10, currentSet);
 const currentReps = document.getElementById('repsInput');
 populatePicker('.reps', 1, 99, currentReps);
 
+// Add event listener to the add button that stores exercise chosen and amount of sets and reps to a user
+
+// reference to user document that includes ALL user data 
+var currentUser
+
+function submitSession() {
+    console.log("inside submitSession");
+
+    // constants for the user's input values
+    let exerciseName = document.getElementById('drop').value;
+    let weightValue = document.getElementById('weightInput').value;
+    let setsValue = document.getElementById('setsInput').value;
+    let repsValue = document.getElementById('repsInput').value;
+
+    // NEED TO UPDATE BASED ON DB FILE STRUCTURE ON FIRESTORE
+    // Example of specifying the path to the subcollection:
+        // const parentDocRef = db.collection('parentCollection').doc(parentDocID);
+        // parentDocRef.collection(subcollectionName).add({ ..... })
+
+    // adds inputs to the user's "workouts" collection
+    // should i add an if 'user' else 'error: please sign in'?
+    db.collection('workouts').add({
+        exercise: exerciseName,
+        weight: weightValue,
+        sets: setsValue,
+        reps: repsValue
+    })
+        .then(function (docRef) {
+            console.log('Add Session written with ID: ', docRef.id);
+            // Clears the input fields after successful submission
+            document.getElementById('weightInput').value = '';
+            document.getElementById('setsInput').value = '';
+            document.getElementById('repsInput').value = '';
+        })
+}
