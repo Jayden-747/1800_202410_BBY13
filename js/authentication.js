@@ -16,6 +16,8 @@ var uiConfig = {
           name: user.displayName,
           email: user.email,
         });
+        db.collection("users").doc(user.uid).collection("workouts").add({});
+        db.collection("users").doc(user.uid).collection("friends").add({});
         console.log("New user added to firestore");
         modal.style.display = "block";
         document
@@ -26,8 +28,8 @@ var uiConfig = {
               .update({
                 username: document.getElementById("user-input").value,
               });
-            console.log("username set");
             window.location.assign("home.html");
+            alert("username set");
           });
       } else {
         return true;
