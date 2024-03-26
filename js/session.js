@@ -109,7 +109,7 @@ function dataExercise() {
         points: 3
     });
 
-    
+
 }
 
 
@@ -182,28 +182,48 @@ populatePicker('.sets', 1, 10, currentSet);
 const currentReps = document.getElementById('repsInput');
 populatePicker('.reps', 1, 99, currentReps);
 
-// Add event listener to the add button that stores exercise chosen and amount of sets and reps to a user
 
-// reference to user document that includes ALL user data 
-var currentUser
+// Listen for authentication state changes
+// firebase.auth().onAuthStateChanged(function(user) {
+//     if (user) {
+//         // User is signed in.
+//         console.log("User is signed in:", user.uid);
+//         // Call submitSession function with the current user object
+//         submitSession(user);
+//     } else {
+//         // No user is signed in.
+//         console.log("No user is signed in.");
+//         alert("You are not signed in. Please sign in to submit a workout.");
+//     }
+// });
 
+// Adds the user's workout info to firebase (@ user's workout collection)
 function submitSession() {
     console.log("inside submitSession");
 
-    // constants for the user's input values
-    let exerciseName = document.getElementById('drop').value;
-    let weightValue = document.getElementById('weightInput').value;
-    let setsValue = document.getElementById('setsInput').value;
-    let repsValue = document.getElementById('repsInput').value;
+    // Check if user is signed in
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        console.log("User is not signed in.");
+        alert("You are not signed in. Please sign in to submit a workout.");
+        return; // Exit the function if user is not signed in
+    }
 
-    // NEED TO UPDATE BASED ON DB FILE STRUCTURE ON FIRESTORE
-    // Example of specifying the path to the subcollection:
-        // const parentDocRef = db.collection('parentCollection').doc(parentDocID);
-        // parentDocRef.collection(subcollectionName).add({ ..... })
+    // Constants for the user's input values
+    var exerciseName = document.getElementById('drop').value;
+    var weightValue = document.getElementById('weightInput').value;
+    var setsValue = document.getElementById('setsInput').value;
+    var repsValue = document.getElementById('repsInput').value;
 
-    // adds inputs to the user's "workouts" collection
-    // should i add an if 'user' else 'error: please sign in'?
-    db.collection('workouts').add({
+    // Check if any input field is empty
+    if (!exerciseName || !weightValue || !setsValue || !repsValue) {
+        alert("Please fill in all information.");
+        return; // Exit the function if any field is empty
+    }
+
+    // Adds the form inputs to user's workout collection
+    const userWorkoutRef = db.collection('users').doc(user.uid).collection('workouts');
+    userWorkoutRef.add({
         exercise: exerciseName,
         weight: weightValue,
         sets: setsValue,
