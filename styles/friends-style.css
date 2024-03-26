@@ -1,0 +1,87 @@
+/*
+    Colour Palette
+------------------------
+| Dark Blue:   #0D1321 |
+| Medium Blue: #1D2D44 |
+| Blue:        #3E5C76 |
+| Light Blue:  #748CAB |
+| White:       #F0EBD8 |
+| Yellow:      #FCBF49 |
+------------------------
+
+*/
+
+.container {
+  color: white;
+  padding: 0;
+  width: 95%;
+  max-width: 1000px;
+  height: fit-content;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.header {
+  padding: 10px 10px 8px 10px;
+  width: 100%;
+  border-bottom: solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.friend {
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+  border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
+  height: 45px;
+  overflow: hidden;
+}
+
+h5 {
+  margin: 0;
+}
+
+.friends-list {
+  all: unset;
+}
+
+.friend:last-child {
+  border: hidden;
+}
+
+.add-friend {
+  all: unset;
+  background-color: #748cab;
+  border-radius: 4px;
+  height: 30px;
+  width: 80px;
+  font-size: smaller;
+  text-align: center;
+  margin: 15px 0px;
+}
+
+.add-friend:hover {
+  background-color: #6281aa;
+}
+
+input {
+  all: unset;
+}
+
+.friend-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#friend-input {
+  width: 80%;
+  border-bottom: solid 1px white;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.418);
+}
