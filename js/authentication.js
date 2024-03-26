@@ -29,7 +29,7 @@ var uiConfig = {
                 username: document.getElementById("user-input").value,
               });
             window.location.assign("home.html");
-            alert("username set");
+            alert("username successfully set!");
           });
       } else {
         return true;
