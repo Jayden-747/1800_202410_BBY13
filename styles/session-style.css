@@ -44,7 +44,8 @@
 #drop,
 #weightInput,
 #setsInput,
-#repsInput {
+#repsInput,
+#durationInput {
     width: 200px;
     float: right;
 }
@@ -62,8 +63,16 @@
 #chooseForm {
     margin-top: 15px;
 }
+#durationForm{
+    display: none;
+    transform: translateY(40px);
+    margin-bottom: 40px;
+}
 
 /* scroll wheel below */
+#picker {
+    display: flex;
+}
 
 .picker {
     display: flex;
@@ -74,6 +83,7 @@
     width: 100%;
     /* Set the desired height of the picker */
     padding: 10px;
+    gap: 20px;
 }
 
 .option {
@@ -95,11 +105,11 @@
 
 }
 
-.picker {
+/* .picker {
     display: flex;
     flex-direction: row;
     gap: 20px;
-}
+} */
 
 .sets,
 .reps {

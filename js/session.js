@@ -9,105 +9,6 @@ function dataExercise() {
 
     });
 
-    exerRef.add({
-        name: "Lunges",
-        type: "Strength",
-        points: 3
-
-    });
-
-    exerRef.add({
-        name: "Barbell Rows",
-        type: "Strength",
-        points: 3
-
-    });
-
-    exerRef.add({
-        name: "Barbell Shoulder Presses",
-        type: "Strength",
-        points: 3
-
-    });
-
-    exerRef.add({
-        name: "Cycling",
-        type: "Stamina",
-        points: 3
-    });
-
-    exerRef.add({
-        name: "Swimming",
-        type: "Stamina",
-        points: 3
-    });
-
-    exerRef.add({
-        name: "Stair Masters",
-        type: "Stamina",
-        points: 4
-    });
-
-    exerRef.add({
-        name: "Elliptical",
-        type: "Stamina",
-        points: 2
-    });
-
-    exerRef.add({
-        name: "High Intensity Interval Training (HIIT)",
-        type: "Stamina",
-        points: 5
-
-    });
-
-    exerRef.add({
-        name: "Bicep curls",
-        type: "Strength",
-        points: 2
-
-    });
-
-    exerRef.add({
-        name: "Skull Crushers",
-        type: "Strength",
-        points: 3
-    });
-
-    exerRef.add({
-        name: "Dips",
-        type: "Strength",
-        points: 3
-    });
-
-    exerRef.add({
-        name: "Pull Ups",
-        type: "Strength",
-        points: 5
-    });
-
-    exerRef.add({
-        name: "Chin Ups",
-        type: "Strength",
-        points: 5
-    });
-
-    exerRef.add({
-        name: "Overhead Tricep Extensions",
-        type: "Strength",
-        points: 3
-    });
-
-    exerRef.add({
-        name: "Push Ups",
-        type: "Strength",
-        points: 3
-    });
-    exerRef.add({
-        name: "Sit Ups",
-        type: "Strength",
-        points: 3
-    });
 
 
 }
@@ -137,6 +38,54 @@ function populateDrop() {
 }
 
 populateDrop();
+
+function handleExerciseSelection() {
+    let selectedExerciseId = document.getElementById('drop').value;
+    let picker = document.getElementById('picker');
+    let weightForm = document.getElementById('weightForm');
+    let setForm = document.getElementById('setForm');
+    let repForm = document.getElementById('repForm');
+    let durationForm = document.getElementById('durationForm');
+    if (!selectedExerciseId) return; // Ensuring an exercise is selected
+    
+    // Retrieve the exercise document from Firestore based on the selected exercise ID
+    db.collection('exercises').doc(selectedExerciseId).get()
+    .then(doc => {
+        if (doc.exists) {
+            let exerciseData = doc.data();
+            // Assuming 'type' is the field you want to use for layout change
+            let exerciseType = exerciseData.type;
+            
+            // Change the layout based on the value of 'type' field
+            if (exerciseType === 'Stamina') {
+                // Change the layout for exercises with type 'Stamina'
+                // For example, show/hide certain divs, change CSS classes, etc.
+                    weightForm.style.display = "none";
+                    setForm.style.display = "none";  
+                    repForm.style.display = "none";  
+                    picker.style.display = "none";
+                    durationForm.style.display = "block";
+                } else {
+                    // Change the layout for exercises with other types
+                    // For example, show/hide different divs, change CSS classes, etc.
+                    weightForm.style.display = "";
+                    setForm.style.display = "";  
+                    repForm.style.display = "";  
+                    picker.style.display = "flex";
+                    durationForm.style.display = "none";
+                }
+            } else {
+                console.log('No such document!');
+            }
+        })
+
+}
+
+// Add event listener for exercise selection
+document.getElementById('drop').addEventListener('change', handleExerciseSelection);
+
+
+
 
 // SCROLL WHEEL FUNCTIONS:
 // generates (an array of) the options for sets and reps 
@@ -237,3 +186,5 @@ function submitSession() {
             document.getElementById('repsInput').value = '';
         })
 }
+
+
