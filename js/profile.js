@@ -1,14 +1,11 @@
   
 // Grabs stat fields from users that are logged in and updates the progress bars' width to match 
 function updateBar() {
-
   firebase.auth().onAuthStateChanged(user => {
     // Check if user is signed in:
     if (user) {
-
         //go to the correct user document by referencing to the user uid
-        currentUser = db.collection("users").doc(user.uid)
-        
+        currentUser = db.collection("users").doc(user.uid) 
         //get the document for current user.
         currentUser.get()
             .then(userDoc => {
@@ -17,7 +14,7 @@ function updateBar() {
                 let spd = userDoc.data().Speed;
                 let sta = userDoc.data().Stamina;
                 
-                //if the data fields are not empty, then write them in to the form.
+                //if the data fields are not empty, then update width of the progress bar
                 if (str != null) {
                     const bar1 = document.getElementById("strengthBar");
                     bar1.style.width = `${str}%`;
