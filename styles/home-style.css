@@ -13,6 +13,10 @@
 
 .main-grid {
   display: grid;
+  grid-template-areas:
+    'nav'
+    'carousel'
+    'challenges';
   grid-template-rows: 5vh 35vh 40vh;
   padding: 5%;
 }
@@ -61,6 +65,7 @@ body {
   text-decoration: underline;
   color: white;
 }
+
 .btn {
   color: white;
   border: solid 1.5px;
@@ -93,4 +98,39 @@ li {
 
 .hero-border {
   border-radius: 10px;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-image {
+  height: 270px;
+  border-radius: 10px;
+}
+
+
+
+#challenge-table {
+  background-color: #1d2d44;
+  border-radius: 10px;
+  color: white;
+
+  /* border: #F0EBD8; */
+}
+
+#table-header {
+  border-bottom: 3px solid white;
+  padding: 10px 10px 8px 10px;
+}
+
+#table-detail {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.178);
+  padding: 10px 10px 8px 10px;
+  
+}
+
+#table-detail-bottom {
+  padding: 10px 10px 8px 10px;
 }
