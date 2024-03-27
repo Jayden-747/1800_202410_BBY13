@@ -39,6 +39,8 @@ function populateDrop() {
 
 populateDrop();
 
+//function that retrieves the data of a selected exercise from the dropdown menu. The type field is retrieved
+//and layout changes depending if the type field has "Stamina".
 function handleExerciseSelection() {
     let selectedExerciseId = document.getElementById('drop').value;
     let picker = document.getElementById('picker');
@@ -48,40 +50,37 @@ function handleExerciseSelection() {
     let durationForm = document.getElementById('durationForm');
     if (!selectedExerciseId) return; // Ensuring an exercise is selected
     
-    // Retrieve the exercise document from Firestore based on the selected exercise ID
+    // Retrieve the exercise document from Firestore based on the exercise 
     db.collection('exercises').doc(selectedExerciseId).get()
     .then(doc => {
         if (doc.exists) {
             let exerciseData = doc.data();
-            // Assuming 'type' is the field you want to use for layout change
+            // Chooses type filled in exercise document 
             let exerciseType = exerciseData.type;
-            
             // Change the layout based on the value of 'type' field
             if (exerciseType === 'Stamina') {
                 // Change the layout for exercises with type 'Stamina'
-                // For example, show/hide certain divs, change CSS classes, etc.
-                    weightForm.style.display = "none";
-                    setForm.style.display = "none";  
-                    repForm.style.display = "none";  
-                    picker.style.display = "none";
-                    durationForm.style.display = "block";
-                } else {
-                    // Change the layout for exercises with other types
-                    // For example, show/hide different divs, change CSS classes, etc.
-                    weightForm.style.display = "";
-                    setForm.style.display = "";  
-                    repForm.style.display = "";  
-                    picker.style.display = "flex";
-                    durationForm.style.display = "none";
-                }
+                weightForm.style.display = "none";
+                setForm.style.display = "none";  
+                repForm.style.display = "none";  
+                picker.style.display = "none";
+                durationForm.style.display = "block";
             } else {
-                console.log('No such document!');
-            }
-        })
+                // Change the layout for exercises with other types
+                weightForm.style.display = "";
+                setForm.style.display = "";  
+                repForm.style.display = "";  
+                picker.style.display = "flex";
+                durationForm.style.display = "none";
+                }
+        } else {
+            // in case exercise does not exist is fire store
+            console.log('No such document!');
+        }
+    })
 
 }
-
-// Add event listener for exercise selection
+// Add event listener for when exercise is chosen - any exercise chosen calls the handle exercise function
 document.getElementById('drop').addEventListener('change', handleExerciseSelection);
 
 
