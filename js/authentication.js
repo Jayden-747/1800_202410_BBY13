@@ -17,15 +17,6 @@ var uiConfig = {
           email: user.email,
         });
         db.collection("users").doc(user.uid).collection("workouts").add({});
-        // Add workout fields automatically to each user's workout collection
-        const workoutRef = db.collection("users").doc(user.uid).collection("workouts");
-        workoutRef.add({
-          exercise: "",
-          weight:"",
-          sets: "",
-          reps: "",
-          duration: ""
-        })
         db.collection("users").doc(user.uid).collection("friends").add({});
         console.log("New user added to firestore");
         modal.style.display = "block";
