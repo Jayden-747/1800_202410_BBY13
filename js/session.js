@@ -39,6 +39,8 @@ function populateDrop() {
 
 populateDrop();
 
+//function that retrieves the data of a selected exercise from the dropdown menu. The type field is retrieved
+//and layout changes depending if the type field has "Stamina".
 function handleExerciseSelection() {
     let selectedExerciseId = document.getElementById('drop').value;
     let picker = document.getElementById('picker');
@@ -48,7 +50,7 @@ function handleExerciseSelection() {
     let durationForm = document.getElementById('durationForm');
     if (!selectedExerciseId) return; // Ensuring an exercise is selected
 
-    // Retrieve the exercise document from Firestore based on the selected exercise ID
+    // Retrieve the exercise document from Firestore based on the exercise 
     db.collection('exercises').doc(selectedExerciseId).get()
         .then(doc => {
             if (doc.exists) {
@@ -75,13 +77,13 @@ function handleExerciseSelection() {
                     durationForm.style.display = "none";
                 }
             } else {
+                // in case exercise does not exist is fire store
                 console.log('No such document!');
             }
         })
 
 }
-
-// Add event listener for exercise selection
+// Add event listener for when exercise is chosen - any exercise chosen calls the handle exercise function
 document.getElementById('drop').addEventListener('change', handleExerciseSelection);
 
 
@@ -165,50 +167,56 @@ function submitSession() {
     var repsValue = document.getElementById('repsInput').value;
     var durationValue = document.getElementById('durationInput').value;
 
+    // Ensures user has selected an exercise.
+    if(!exerciseName) {
+        alert("Please select an exercise.");
+    }
+
     // If duration is filled in, weight,sets,repsValues can be left empty
 
     // Retrieve the exercise 'type' based on its uniqueID
-    exerciseName.get().then((doc => {
-        if (doc && doc.data()) {
-            const exerciseType =  doc.data().type;
-            console.log(exerciseType);
-        } else {
-            alert("No such exercise exists, please choose from the dropdown!");
-        }
-    }));
+    db.collection('exercises').doc(exerciseName).get()
+        .then((doc => {
+            if (doc && doc.data()) {
+                const exerciseType = doc.data().type;
+                console.log(exerciseType);
+                // Checks exercise type and validate input per exercise type
+                var staminaExerciseIsChosen = exerciseType === 'Stamina';
+                if (staminaExerciseIsChosen) {
+                    if (!durationValue) {
+                        alert("Please fill in all information.");
+                        return;
+                    }
+                } else {
+                    if (!exerciseName || !weightValue || !setsValue || !repsValue) {
+                        alert("Please fill in all information.");
+                        return;
+                    }
+                }
 
-    var staminaExerciseIsChosen = exerciseType == Stamina;
-    if (staminaExerciseIsChosen) {
-        if (!durationValue) {
-            alert("Please fill in all information.");
-            return;
-        }
-    } else {
-        // Check if any input field is empty
-        if (!exerciseName || !weightValue || !setsValue || !repsValue) {
-            alert("Please fill in all information.");
-            return; // Exit the function if any field is empty
-        }
+                //////// Adds the form inputs to user's workout collection
+                const userWorkoutRef = db.collection('users').doc(user.uid).collection('workouts');
+                userWorkoutRef.add({
+                    exercise: exerciseName,
+                    weight: weightValue,
+                    sets: setsValue,
+                    reps: repsValue,
+                    duration: durationValue
+                })
+                    .then(function (docRef) {
+                        console.log('Add Session written with ID: ', docRef.id);
+                        // Clears the input fields after successful submission
+                        document.getElementById('weightInput').value = '';
+                        document.getElementById('setsInput').value = '';
+                        document.getElementById('repsInput').value = '';
+                        document.getElementById('durationInput').value = '';
+
+                    })
+                    .catch(function (error) {
+                        console.error("Error adding documet: ", error);
+                    });
+            } else {
+                alert("No such exercise exists, please choose from the dropdown@");
+            }
+        }));
     }
-
-    // Adds the form inputs to user's workout collection
-    const userWorkoutRef = db.collection('users').doc(user.uid).collection('workouts');
-    userWorkoutRef.add({
-        exercise: exerciseName,
-        weight: weightValue,
-        sets: setsValue,
-        reps: repsValue,
-        duration: durationValue
-    })
-        .then(function (docRef) {
-            console.log('Add Session written with ID: ', docRef.id);
-            // Clears the input fields after successful submission
-            document.getElementById('weightInput').value = '';
-            document.getElementById('setsInput').value = '';
-            document.getElementById('repsInput').value = '';
-            document.getElementById('durationInput').value = '';
-
-        })
-}
-
-
