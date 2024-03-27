@@ -23,7 +23,8 @@ var uiConfig = {
           exercise: "",
           weight:"",
           sets: "",
-          reps: ""
+          reps: "",
+          duration: ""
         })
         db.collection("users").doc(user.uid).collection("friends").add({});
         console.log("New user added to firestore");

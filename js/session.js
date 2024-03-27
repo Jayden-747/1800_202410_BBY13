@@ -47,30 +47,30 @@ function handleExerciseSelection() {
     let repForm = document.getElementById('repForm');
     let durationForm = document.getElementById('durationForm');
     if (!selectedExerciseId) return; // Ensuring an exercise is selected
-    
+
     // Retrieve the exercise document from Firestore based on the selected exercise ID
     db.collection('exercises').doc(selectedExerciseId).get()
-    .then(doc => {
-        if (doc.exists) {
-            let exerciseData = doc.data();
-            // Assuming 'type' is the field you want to use for layout change
-            let exerciseType = exerciseData.type;
-            
-            // Change the layout based on the value of 'type' field
-            if (exerciseType === 'Stamina') {
-                // Change the layout for exercises with type 'Stamina'
-                // For example, show/hide certain divs, change CSS classes, etc.
+        .then(doc => {
+            if (doc.exists) {
+                let exerciseData = doc.data();
+                // Assuming 'type' is the field you want to use for layout change
+                let exerciseType = exerciseData.type;
+
+                // Change the layout based on the value of 'type' field
+                if (exerciseType === 'Stamina') {
+                    // Change the layout for exercises with type 'Stamina'
+                    // For example, show/hide certain divs, change CSS classes, etc.
                     weightForm.style.display = "none";
-                    setForm.style.display = "none";  
-                    repForm.style.display = "none";  
+                    setForm.style.display = "none";
+                    repForm.style.display = "none";
                     picker.style.display = "none";
                     durationForm.style.display = "block";
                 } else {
                     // Change the layout for exercises with other types
                     // For example, show/hide different divs, change CSS classes, etc.
                     weightForm.style.display = "";
-                    setForm.style.display = "";  
-                    repForm.style.display = "";  
+                    setForm.style.display = "";
+                    repForm.style.display = "";
                     picker.style.display = "flex";
                     durationForm.style.display = "none";
                 }
@@ -163,11 +163,32 @@ function submitSession() {
     var weightValue = document.getElementById('weightInput').value;
     var setsValue = document.getElementById('setsInput').value;
     var repsValue = document.getElementById('repsInput').value;
+    var durationValue = document.getElementById('durationInput').value;
 
-    // Check if any input field is empty
-    if (!exerciseName || !weightValue || !setsValue || !repsValue) {
-        alert("Please fill in all information.");
-        return; // Exit the function if any field is empty
+    // If duration is filled in, weight,sets,repsValues can be left empty
+
+    // Retrieve the exercise 'type' based on its uniqueID
+    exerciseName.get().then((doc => {
+        if (doc && doc.data()) {
+            const exerciseType =  doc.data().type;
+            console.log(exerciseType);
+        } else {
+            alert("No such exercise exists, please choose from the dropdown!");
+        }
+    }));
+
+    var staminaExerciseIsChosen = exerciseType == Stamina;
+    if (staminaExerciseIsChosen) {
+        if (!durationValue) {
+            alert("Please fill in all information.");
+            return;
+        }
+    } else {
+        // Check if any input field is empty
+        if (!exerciseName || !weightValue || !setsValue || !repsValue) {
+            alert("Please fill in all information.");
+            return; // Exit the function if any field is empty
+        }
     }
 
     // Adds the form inputs to user's workout collection
@@ -176,7 +197,8 @@ function submitSession() {
         exercise: exerciseName,
         weight: weightValue,
         sets: setsValue,
-        reps: repsValue
+        reps: repsValue,
+        duration: durationValue
     })
         .then(function (docRef) {
             console.log('Add Session written with ID: ', docRef.id);
@@ -184,6 +206,8 @@ function submitSession() {
             document.getElementById('weightInput').value = '';
             document.getElementById('setsInput').value = '';
             document.getElementById('repsInput').value = '';
+            document.getElementById('durationInput').value = '';
+
         })
 }
 
