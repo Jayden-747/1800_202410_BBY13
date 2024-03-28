@@ -117,7 +117,7 @@ li {
 
 .progress-bar {
   background-color: #fcbf49;
-  border-right: solid;
+  border-right: solid 1px;
 }
 
 .stat-name {
@@ -135,7 +135,7 @@ li {
 .bar-title {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: end;
   color: white;
   padding: 0px 18px;
 }
@@ -151,4 +151,38 @@ li {
 .xp {
   font-size: small;
   display: flex;
+}
+
+.container {
+  color: white;
+  padding: 0;
+  width: 95%;
+  max-width: 1000px;
+  height: fit-content;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.header {
+  padding: 10px 10px 8px 10px;
+  width: 100%;
+  border-bottom: solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.friend {
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+  border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
+  height: 45px;
+  overflow: hidden;
+}
+
+.friend:last-child {
+  border: hidden;
+}
+
+.friends-list {
+  all: unset;
 }

@@ -150,7 +150,7 @@ h5 {
   padding-top: 20px;
 }
 
-.modal-content {
+.change-user .modal-content {
   background-color: #1d2d44;
   padding: 20px;
   width: 80%;
@@ -199,6 +199,30 @@ h5 {
 #tooltip {
   font-size: 12px;
   width: 50%;
+}
+
+/* #endregion CHANGE USERNAME SETTING */
+
+/* #region CHANGE USERNAME SETTING */
+
+.pfp-container {
+  display: none;
+  flex-wrap: wrap;
+  height: 220px;
+  margin: 20px 0px;
+  gap: 20px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.pfp {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
 }
 
 /* #endregion CHANGE USERNAME SETTING */

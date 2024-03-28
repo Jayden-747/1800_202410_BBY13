@@ -1,7 +1,3 @@
-const changeUserName = document.querySelector(".change-username");
-const changeUserNameIcon = changeUserName.querySelector(".dropdown-icon");
-const modal = document.querySelector(".modal-container");
-// import { getAuth } from "firebase/auth";
 const user = firebase.auth.currentUser;
 
 /* 
@@ -27,9 +23,14 @@ content = the element inside the setting option
 function close(element, arrow, content) {
   element.style.cssText = "height: 45px; transition: height 0.2s ease-in;";
   arrow.style.cssText = "transform: rotate(90deg); transition: 0.2s ease-in;";
-  content.style.display = "none";
+  setTimeout(function () {
+    content.style.display = "none";
+  }, 200); // 200 milliseconds = 0.2 seconds
 }
 
+const changeUserName = document.querySelector(".change-username");
+const changeUserNameIcon = changeUserName.querySelector(".dropdown-icon");
+const modal = document.querySelector(".modal-container");
 /*
 Change Username dropdown animation trigger.
 */
@@ -38,7 +39,7 @@ document.addEventListener("mousedown", function (event) {
     console.log("clicked");
     open(changeUserName, changeUserNameIcon, modal, "230px");
   } else if (!changeUserName.contains(event.target)) {
-    close(changeUserName, changeUserNameIcon);
+    close(changeUserName, changeUserNameIcon, modal);
     console.log("clicked outside");
   }
 });
@@ -55,7 +56,6 @@ document.getElementById("submit").addEventListener("click", function () {
     });
   console.log("username set");
 });
-console.log(user);
 
 let uesrID;
 // Accesses User UID
@@ -66,5 +66,22 @@ firebase.auth().onAuthStateChanged((user) => {
     userID = user.uid;
   } else {
     // User not logged in or has just logged out.
+  }
+});
+
+const changePfp = document.querySelector(".change-pfp");
+const changePfpIcon = changePfp.querySelector(".dropdown-icon");
+const pfpContainer = document.querySelector(".pfp-container");
+
+/*
+Change Profile Picture dropdown animation trigger.
+*/
+document.addEventListener("mousedown", function (event) {
+  if (changePfp.contains(event.target)) {
+    console.log("clicked");
+    open(changePfp, changePfpIcon, pfpContainer, "300px");
+  } else if (!changePfp.contains(event.target)) {
+    close(changePfp, changePfpIcon, pfpContainer);
+    console.log("clicked outside");
   }
 });
