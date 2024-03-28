@@ -34,6 +34,11 @@
     padding-left: 30px;
     padding-right: 30px;
     display: grid;
+    grid-template-areas: 
+        'exercise exercise exercise'
+        'weight sets reps'
+        'wheel wheel wheel';
+    grid-template-columns: 33% 33% 33%;
 }
 
 .form-label,
@@ -41,13 +46,15 @@
     float: left;
 }
 
-#drop,
 #weightInput,
 #setsInput,
 #repsInput,
 #durationInput {
-    width: 200px;
+    width: 80px;
     float: right;
+}
+#drop {
+    width: 100%;
 }
 
 #addButton {
@@ -63,27 +70,79 @@
 #chooseForm {
     margin-top: 15px;
 }
+
+#chooseForm {
+    grid-area: exercise;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#weightForm {
+    grid-area: weight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#setForm {
+    grid-area: sets;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#repForm {
+    grid-area: reps;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #durationForm{
+    grid-area: reps;
     display: none;
-    transform: translateY(40px);
-    margin-bottom: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* scroll wheel below */
-#picker {
-    display: flex;
-}
 
 .picker {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
+    grid-area: wheel;
+    display: grid;
+    grid-template-areas: 'left mid right';
+    grid-template-columns: 33.333% 33.333% 33.333%;
     width: 100%;
-    /* Set the desired height of the picker */
-    padding: 10px;
-    gap: 20px;
+    padding-top: 2%;
+}
+
+#weightWheel {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+}
+
+#setsWheel {
+    grid-area: mid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+}
+#repsWheel {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
 }
 
 .option {
@@ -94,7 +153,7 @@
 }
 
 .option:hover {
-    background-color: #0D1321;
+    background-color: #3E5C76;
     /* Change background color to light gray when hovering */
 }
 
@@ -111,16 +170,18 @@
     gap: 20px;
 } */
 
+.weight,
 .sets,
 .reps {
     flex: 1;
     border: 1px solid #ccc;
-    height: 160px;
+    height: 150px;
     width: 80px;
     overflow-y: scroll;
     /* Implements scroll wheel like behavior? */
 }
 
+.weight::-webkit-scrollbar,
 .sets::-webkit-scrollbar,
 .reps::-webkit-scrollbar {
     display: none;

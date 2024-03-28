@@ -61,15 +61,15 @@
           </select>
         </div>
         <div id="weightForm">
-          <label class="form-label" for="typeNumber">Weight: </label>
+          <label class="form-label" for="typeNumber">Weight <span id="metric">(lb)</span></label>
           <input value="" type="number" class="typeNumber" id="weightInput" />
         </div>
         <div id="setForm">
-          <label class="form-label" for="typeNumber">Sets: </label>
+          <label class="form-label" for="typeNumber">Sets </label>
           <input value="" type="number" class="typeNumber" id="setsInput" />
         </div>
         <div id="repForm">
-          <label class="form-label" for="typeNumber">Reps: </label>
+          <label class="form-label" for="typeNumber">Reps </label>
           <input value="" type="number" class="typeNumber" id="repsInput" />
         </div>
         <div id="durationForm">
@@ -80,12 +80,16 @@
         
         <!-- scroll wheel -->
         <div id="picker" class="picker">
-          <div class="sets-container">
-            <h6>Sets</h6>
+          <div class="weight-container" id="weightWheel">
+            <!-- <h6>Weight</h6> -->
+            <div class="weight"></div>
+          </div>
+          <div class="sets-container" id="setsWheel">
+            <!-- <h6>Sets</h6> -->
             <div class="sets"></div>
           </div>
-          <div class="reps-container">
-            <h6>Reps</h6>
+          <div class="reps-container" id="repsWheel">
+            <!-- <h6>Reps</h6> -->
             <div class="reps"></div>
           </div>
         </div>

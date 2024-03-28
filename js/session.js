@@ -66,14 +66,15 @@ function handleExerciseSelection() {
                     setForm.style.display = "none";
                     repForm.style.display = "none";
                     picker.style.display = "none";
-                    durationForm.style.display = "block";
+                    durationForm.style.display = "flex";
                 } else {
                     // Change the layout for exercises with other types
                     // For example, show/hide different divs, change CSS classes, etc.
-                    weightForm.style.display = "";
-                    setForm.style.display = "";
-                    repForm.style.display = "";
-                    picker.style.display = "flex";
+                    // TOMMY: i changed the display values to match its css ones cuz it was overwritting the css - NERIYEL
+                    weightForm.style.display = "flex";
+                    setForm.style.display = "flex";
+                    repForm.style.display = "flex";
+                    picker.style.display = "grid";
                     durationForm.style.display = "none";
                 }
             } else {
@@ -94,8 +95,7 @@ document.getElementById('drop').addEventListener('change', handleExerciseSelecti
 function generateOptions(start, end) {
     const options = [];
     for (let i = start; i <= end; i++) {
-        // ternary operator (below) just ensures 2 digit formatting
-        options.push(i < 10 ? '0' + i : i);
+        options.push(i);
     }
     return options;
 }
@@ -133,20 +133,36 @@ populatePicker('.sets', 1, 10, currentSet);
 const currentReps = document.getElementById('repsInput');
 populatePicker('.reps', 1, 99, currentReps);
 
+// Separate functions for weight input (different increments)
+function generateWeightOptions(start, end) {
+    const options = [];
+    for (let i = start; i <= end; i = i + 2.5) {
+        options.push(i);
+    }
+    return options;
+}
 
-// Listen for authentication state changes
-// firebase.auth().onAuthStateChanged(function(user) {
-//     if (user) {
-//         // User is signed in.
-//         console.log("User is signed in:", user.uid);
-//         // Call submitSession function with the current user object
-//         submitSession(user);
-//     } else {
-//         // No user is signed in.
-//         console.log("No user is signed in.");
-//         alert("You are not signed in. Please sign in to submit a workout.");
-//     }
-// });
+// Populates the options for weights starting from 2.5 and increasing by 2.5
+function populateWeightPicker(start, end, increment, inputElement) {
+    const picker = document.querySelector('.weight');
+    const options = generateWeightOptions(start, end, increment);
+
+    picker.innerHTML = options.map(option => `<div class="option">${option}</div>`).join('');
+
+    const optionElements = picker.querySelectorAll('.option');
+
+    optionElements.forEach(option => {
+        option.addEventListener('click', () => {
+            optionElements.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            inputElement.value = option.textContent;
+        });
+    });
+}
+
+// Initialize picker for weights starting from 2.5 and increasing by 2.5
+const currentWeight = document.getElementById('weightInput');
+populateWeightPicker(2.5, 500, 2.5, currentWeight);
 
 // Adds the user's workout info to firebase (@ user's workout collection)
 function submitSession() {
