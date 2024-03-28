@@ -125,9 +125,30 @@ li {
   gap: 10px;
 }
 
+.level-title {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 0px 18px;
+}
+
 .bar-title {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   color: white;
   padding: 0px 18px;
+}
+
+.xp-count {
+  position: absolute;
+  width: 100%;
+  padding-right: 18px;
+  display: flex;
+  justify-content: end;
+}
+
+.xp {
+  font-size: small;
+  display: flex;
 }
