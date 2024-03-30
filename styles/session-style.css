@@ -50,7 +50,7 @@
 #setsInput,
 #repsInput,
 #durationInput {
-    width: 80px;
+    width: 100px;
     float: right;
 }
 #drop {
@@ -101,7 +101,7 @@
     align-items: center;
 }
 #durationForm{
-    grid-area: reps;
+    grid-area: sets;
     display: none;
     flex-direction: column;
     justify-content: center;

@@ -3,13 +3,11 @@ function dataExercise() {
     var exerRef = db.collection("exercises");
 
     exerRef.add({
-        name: "Pylometrics",
-        type: "Speed",
-        points: 4
-
+        name: "Running",
+        type: "Stamina",
+        points: 10,
+        split: ""
     });
-
-
 
 }
 
