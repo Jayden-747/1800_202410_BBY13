@@ -15,6 +15,9 @@ var uiConfig = {
         db.collection("users").doc(user.uid).set({
           name: user.displayName,
           email: user.email,
+          Speed: 0,
+          Strength: 0,
+          Stamina: 0,
         });
         db.collection("users").doc(user.uid).collection("workouts").add({});
         db.collection("users").doc(user.uid).collection("friends").add({});
