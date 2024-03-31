@@ -57,7 +57,7 @@ document.getElementById("submit").addEventListener("click", function () {
   console.log("username set");
 });
 
-let uesrID;
+let userID;
 // Accesses User UID
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
