@@ -3,13 +3,11 @@ function dataExercise() {
     var exerRef = db.collection("exercises");
 
     exerRef.add({
-        name: "Pylometrics",
-        type: "Speed",
-        points: 4
-
+        name: "Running",
+        type: "Stamina",
+        points: 10,
+        split: ""
     });
-
-
 
 }
 
@@ -31,13 +29,11 @@ function populateDrop() {
             });
 
         })
-    //for errors I guess??
-    // .catch(error => {
-    //     console.error('Error getting firestoredata: ', error);
-    // });
 }
-
 populateDrop();
+
+
+
 
 //function that retrieves the data of a selected exercise from the dropdown menu. The type field is retrieved
 //and layout changes depending if the type field has "Stamina".
@@ -55,13 +51,12 @@ function handleExerciseSelection() {
         .then(doc => {
             if (doc.exists) {
                 let exerciseData = doc.data();
-                // Assuming 'type' is the field you want to use for layout change
+                // Grabs "type" field from fire store
                 let exerciseType = exerciseData.type;
 
                 // Change the layout based on the value of 'type' field
                 if (exerciseType === 'Stamina') {
                     // Change the layout for exercises with type 'Stamina'
-                    // For example, show/hide certain divs, change CSS classes, etc.
                     weightForm.style.display = "none";
                     setForm.style.display = "none";
                     repForm.style.display = "none";
@@ -69,8 +64,7 @@ function handleExerciseSelection() {
                     durationForm.style.display = "flex";
                 } else {
                     // Change the layout for exercises with other types
-                    // For example, show/hide different divs, change CSS classes, etc.
-                    // TOMMY: i changed the display values to match its css ones cuz it was overwritting the css - NERIYEL
+                    // TOMMY: i changed the display values to match its css ones cuz it was overwritting the css - NERIYEL - OK
                     weightForm.style.display = "flex";
                     setForm.style.display = "flex";
                     repForm.style.display = "flex";
@@ -84,8 +78,10 @@ function handleExerciseSelection() {
         })
 
 }
-// Add event listener for when exercise is chosen - any exercise chosen calls the handle exercise function
+//event listener for when exercise is chosen - any exercise chosen calls the handle exercise function
 document.getElementById('drop').addEventListener('change', handleExerciseSelection);
+
+
 
 
 
@@ -195,6 +191,8 @@ function submitSession() {
         .then((doc => {
             if (doc && doc.data()) {
                 const exerciseType = doc.data().type;
+                //ADDED A CONSTANT TO GRAB NAME OF EXERCISE - TOMMY
+                const exerName = doc.data().name;
                 console.log(exerciseType);
                 // Checks exercise type and validate input per exercise type
                 var staminaExerciseIsChosen = exerciseType === 'Stamina';
@@ -213,12 +211,16 @@ function submitSession() {
                 //////// Adds the form inputs to user's workout collection
                 const userWorkoutRef = db.collection('users').doc(user.uid).collection('workouts');
                 userWorkoutRef.add({
-                    exercise: exerciseName,
+                    //CHANGED VARIABLE NAME SO THAT IT ADDS THE NAME OF THE EXERCISE INTO THE FIELD - TOMMY
+                    exercise: exerName,
                     weight: weightValue,
                     sets: setsValue,
                     reps: repsValue,
-                    duration: durationValue
+                    duration: durationValue,
+                    //ADDED DATE TO WORKOUT FIELD
+                    date: new Date()
                 })
+
                     .then(function (docRef) {
                         console.log('Add Session written with ID: ', docRef.id);
                         // Clears the input fields after successful submission
@@ -228,9 +230,44 @@ function submitSession() {
                         document.getElementById('durationInput').value = '';
 
                     })
+
                     .catch(function (error) {
-                        console.error("Error adding documet: ", error);
+                        console.error("Error adding document: ", error);
                     });
+                    //Code to get points from the exercise they added and add it to the users Strength/Stamina/Speed field
+                    let points = doc.data().points;
+                    let userStatsPointer = db.collection('users').doc(user.uid);
+                    userStatsPointer.get().then((docSnapshot) =>{
+                        if (docSnapshot.exists) {
+                            let userStats = docSnapshot.data();
+                            let userStrength = userStats.Strength;
+                            let userStamina = userStats.Stamina;
+                            let userSpeed = userStats.Speed;
+                            if (exerciseType === 'Strength'){
+                                let multiply = 5 * points;
+                                let total = userStrength + multiply;
+                                userStatsPointer.update({
+                                    Strength: total
+                                })
+                            }
+                            if (exerciseType === 'Stamina'){
+                                let multiply1 = 5 * points;
+                                let total1 = userStamina + multiply1;
+                                userStatsPointer.update({
+                                    Stamina: total1
+                                })
+                            }
+                            if (exerciseType === 'Speed'){
+                                let multiply2 = 5 * points;
+                                let total2 = userSpeed + multiply2;
+                                userStatsPointer.update({
+                                    Speed: total2
+                                })
+                            }
+                        }
+
+                    }) 
+    
             } else {
                 alert("No such exercise exists, please choose from the dropdown@");
             }
