@@ -63,3 +63,53 @@ function updateBar() {
                 
   // Call the function to initially update the progress bar
   updateBar();
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        const workoutsRef = db.collection('users').doc(user.uid).collection('workouts');
+
+        // Query the workouts collection and order by date in descending order
+        workoutsRef.orderBy('date', 'desc').get().then((querySnapshot) => {
+            const workoutsContainer = document.querySelector('.friends-list');
+
+            // Clear existing list items
+            workoutsContainer.innerHTML = '';
+
+            // Iterate over each workout document
+            querySnapshot.forEach((doc) => {
+                // Get data from each document
+                const data = doc.data();
+
+                // Extract the fields you want to display
+                const workoutName = data.exercise;
+                const workoutDate = data.date.toDate().toLocaleDateString(); 
+                const sets = data.sets;
+                const reps = data.reps;
+                const weight = data.weight;
+                const duration = data.duration;
+
+                // Create HTML elements to display the extracted fields
+                const workoutListItem = document.createElement('li');
+                workoutListItem.classList.add('friend'); // Add class to match your HTML structure
+                workoutListItem.innerHTML = `
+                    <p><strong>Exercise:</strong> ${workoutName}</p>
+                    <p><strong>Sets:</strong> ${sets}</p>
+                    <p><strong>Reps:</strong> ${reps}</p>
+                    <p><strong>Weight:</strong> ${weight}</p>
+                    <p><strong>Duration:</strong> ${duration}</p>
+                `;
+
+                // Apply CSS to the paragraphs within the list item
+                workoutListItem.querySelectorAll('p').forEach(p => {
+                    p.style.margin = '5px 0';
+                });
+
+                // Prepend the new list item to the list
+                workoutsContainer.prepend(workoutListItem);
+            });
+        })
+    } else {
+        // User is not signed in. Handle accordingly.
+        console.log("User not signed in.");
+    }
+});
