@@ -65,7 +65,7 @@
         <div class="level-title">
           <div class="stat-name">
             <div>Level</div>
-            <div>1</div>
+            <div id="totalLVL">1</div>
           </div>
           <div class="xp-count">
             <div class="xp">
@@ -85,13 +85,13 @@
         aria-valuemax="100"
         style="height: 20px"
       >
-        <div class="progress-bar" style="width: 100%"></div>
+        <div id="totalBar" class="progress-bar" style="width: 90%"></div>
       </div>
       <div class="stats">
         <div class="bar-title">
           <div class="stat-name">
             <div>Speed</div>
-            <div>1</div>
+            <div id="spdLVL">1</div>
           </div>
           <div class="xp">
             <!-- DIV FOR LEVEL NUMBER -->
@@ -111,12 +111,12 @@
           aria-valuemax="100"
           style="height: 15px"
         >
-          <div id="strengthBar" class="progress-bar" style="width: 0%"></div>
+          <div id="speedBar" class="progress-bar" style="width: 0%"></div>
         </div>
         <div class="bar-title">
           <div class="stat-name">
             <div>Strength</div>
-            <div>1</div>
+            <div id="strLVL">1</div>
           </div>
           <div class="xp">
             <!-- DIV FOR LEVEL NUMBER -->
@@ -134,12 +134,12 @@
           aria-valuemax="100"
           style="height: 15px"
         >
-          <div id="speedBar" class="progress-bar" style="width: 0%"></div>
+          <div id="strengthBar" class="progress-bar" style="width: 0%"></div>
         </div>
         <div class="bar-title">
           <div class="stat-name">
             <div>Stamina</div>
-            <div>1</div>
+            <div id="staLVL">1</div>
           </div>
           <div class="xp">
             <!-- DIV FOR LEVEL NUMBER -->
@@ -165,11 +165,18 @@
         <h5>Previous Workouts</h5>
       </div>
       <ul class="friends-list">
-        <li class="friend">Workout</li>
-        <li class="friend">Workout</li>
-        <li class="friend">Workout</li>
-        <li class="friend">Workout</li>
-        <li class="friend">Workout</li>
+        <li class="friend">Workout1
+          <span class="date">date</span>
+        </li>
+          
+        <li class="friend">Workout2
+          <span class="date">date</span>
+        </li>
+        <li class="friend">Workout3
+          <span class="date">date</span>
+        </li>
+        <li class="friend">Workout4</li>
+        <li class="friend">Workout5</li>
       </ul>
     </div>
     </div>

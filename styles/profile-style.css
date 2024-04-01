@@ -177,6 +177,7 @@ li {
   border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
   height: 45px;
   overflow: hidden;
+  
 }
 
 .friend:last-child {
@@ -186,3 +187,4 @@ li {
 .friends-list {
   all: unset;
 }
+
