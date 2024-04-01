@@ -21,7 +21,6 @@ var uiConfig = {
           Stamina: 0,
         });
         db.collection("users").doc(user.uid).collection("workouts").add({});
-        db.collection("users").doc(user.uid).collection("friends").add({});
         console.log("New user added to firestore");
         modal.style.display = "block";
         document

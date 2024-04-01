@@ -1,4 +1,4 @@
-# Project Exce
+# One Up
 
 ## 1. Project Description
 
