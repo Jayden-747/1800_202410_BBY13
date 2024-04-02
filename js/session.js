@@ -158,7 +158,8 @@ function populateWeightPicker(start, end, increment, inputElement) {
 
 // Initialize picker for weights starting from 2.5 and increasing by 2.5
 const currentWeight = document.getElementById('weightInput');
-populateWeightPicker(2.5, 500, 2.5, currentWeight);
+populateWeightPicker(0, 500, 2.5, currentWeight);
+
 
 // Adds the user's workout info to firebase (@ user's workout collection)
 function submitSession() {
@@ -180,7 +181,7 @@ function submitSession() {
     var durationValue = document.getElementById('durationInput').value;
 
     // Ensures user has selected an exercise.
-    if(!exerciseName) {
+    if (!exerciseName) {
         alert("Please select an exercise.");
     }
 
@@ -191,7 +192,7 @@ function submitSession() {
         .then((doc => {
             if (doc && doc.data()) {
                 const exerciseType = doc.data().type;
-                //ADDED A CONSTANT TO GRAB NAME OF EXERCISE - TOMMY
+                //ADDED A CONSTANT TO GRAB NAME OF EXERCISE - TOMMY -SICKKK
                 const exerName = doc.data().name;
                 console.log(exerciseType);
                 // Checks exercise type and validate input per exercise type
@@ -208,8 +209,14 @@ function submitSession() {
                     }
                 }
 
-                //////// Adds the form inputs to user's workout collection
+                // Adds the form inputs to user's workout collection
                 const userWorkoutRef = db.collection('users').doc(user.uid).collection('workouts');
+
+                // Create a Date object. More convenient to manipulate the Date values.
+                let sessionDateAndTime = new Date();
+                // Split the string to get the date only
+                let sessionDateOnly = `${sessionDateAndTime.toLocaleString('default', { month: 'long' })} ${sessionDateAndTime.getDate()}, ${sessionDateAndTime.getFullYear()}`;
+
                 userWorkoutRef.add({
                     //CHANGED VARIABLE NAME SO THAT IT ADDS THE NAME OF THE EXERCISE INTO THE FIELD - TOMMY
                     exercise: exerName,
@@ -217,8 +224,9 @@ function submitSession() {
                     sets: setsValue,
                     reps: repsValue,
                     duration: durationValue,
-                    //ADDED DATE TO WORKOUT FIELD
-                    date: new Date()
+                    //ADDED DATE TO WORKOUT FIELD (date+time and dateOnly)
+                    date: sessionDateAndTime,
+                    dateOnly: sessionDateOnly
                 })
 
                     .then(function (docRef) {
@@ -229,47 +237,118 @@ function submitSession() {
                         document.getElementById('repsInput').value = '';
                         document.getElementById('durationInput').value = '';
 
+                        // Populate history after successful submission
+                        populateWorkoutSessionHistory();
                     })
+
 
                     .catch(function (error) {
                         console.error("Error adding document: ", error);
                     });
-                    //Code to get points from the exercise they added and add it to the users Strength/Stamina/Speed field
-                    let points = doc.data().points;
-                    let userStatsPointer = db.collection('users').doc(user.uid);
-                    userStatsPointer.get().then((docSnapshot) =>{
-                        if (docSnapshot.exists) {
-                            let userStats = docSnapshot.data();
-                            let userStrength = userStats.Strength;
-                            let userStamina = userStats.Stamina;
-                            let userSpeed = userStats.Speed;
-                            if (exerciseType === 'Strength'){
-                                let multiply = 5 * points;
-                                let total = userStrength + multiply;
-                                userStatsPointer.update({
-                                    Strength: total
-                                })
-                            }
-                            if (exerciseType === 'Stamina'){
-                                let multiply1 = 5 * points;
-                                let total1 = userStamina + multiply1;
-                                userStatsPointer.update({
-                                    Stamina: total1
-                                })
-                            }
-                            if (exerciseType === 'Speed'){
-                                let multiply2 = 5 * points;
-                                let total2 = userSpeed + multiply2;
-                                userStatsPointer.update({
-                                    Speed: total2
-                                })
-                            }
+                //Code to get points from the exercise they added and add it to the users Strength/Stamina/Speed field
+                let points = doc.data().points;
+                let userStatsPointer = db.collection('users').doc(user.uid);
+                userStatsPointer.get().then((docSnapshot) => {
+                    if (docSnapshot.exists) {
+                        let userStats = docSnapshot.data();
+                        let userStrength = userStats.Strength;
+                        let userStamina = userStats.Stamina;
+                        let userSpeed = userStats.Speed;
+                        if (exerciseType === 'Strength') {
+                            let multiply = 5 * points;
+                            let total = userStrength + multiply;
+                            userStatsPointer.update({
+                                Strength: total
+                            })
                         }
+                        if (exerciseType === 'Stamina') {
+                            let multiply1 = 5 * points;
+                            let total1 = userStamina + multiply1;
+                            userStatsPointer.update({
+                                Stamina: total1
+                            })
+                        }
+                        if (exerciseType === 'Speed') {
+                            let multiply2 = 5 * points;
+                            let total2 = userSpeed + multiply2;
+                            userStatsPointer.update({
+                                Speed: total2
+                            })
+                        }
+                    }
 
-                    }) 
-    
+                })
+
             } else {
-                alert("No such exercise exists, please choose from the dropdown@");
+                alert("No such exercise exists, please choose from the dropdown");
             }
         }));
+}
+
+// populates the workout history of current session, listens for authentication state changes
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in. You can call functions that require authentication here.
+        // For example, you can call populateWorkoutSessionHistory().
+        populateWorkoutSessionHistory();
+    } else {
+        // User is signed out. Handle this case if needed.
+        console.log("User is not signed in.");
+        // If you want to alert the user, uncomment the line below:
+        // alert("You are not signed in. Please sign in to submit a workout.");
     }
+});
+
+
+function populateWorkoutSessionHistory() {
+
+    // Clear the workout history container first (prevents duplicates)
+    document.getElementById("workoutHistoryGroup").innerHTML = "";
+
+    // Check if user is signed in
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        console.log("User is not signed in.");
+        alert("You are not signed in. Please sign in to submit a workout.");
+        return; // Exit the function if user is not signed in
+    }
+
+    console.log("inside populateWorkoutSessionHistory");
+    let workoutHistoryTemplate = document.getElementById("workoutHistoryTemplate");
+    let workoutHistoryGroup = document.getElementById("workoutHistoryGroup");
+
+    // Again, sessionID will be the current date (no time stamp)
+    let sessionDateAndTime = new Date();
+    // Split the string to get the date only
+    let sessionID = `${sessionDateAndTime.toLocaleString('default', { month: 'long' })} ${sessionDateAndTime.getDate()}, ${sessionDateAndTime.getFullYear()}`;
+
+    console.log("Session ID:", sessionID);
+
+    db.collection('users').doc(user.uid).collection('workouts')
+        // Filters current session via current date
+        .where("dateOnly", "==", sessionID)
+        .get()
+        .then((allWorkouts) => {
+            workouts = allWorkouts.docs;
+            console.log(workouts);
+            workouts.forEach((doc) => {
+                var exercise = doc.data().exercise;
+                var weight = doc.data().weight;
+                var reps = doc.data().reps;
+                var sets = doc.data().sets;
+                var duration = doc.data().duration;
+
+                // cloneNode creates copies of the workoutHistoryTemplate
+                let workoutCard = workoutHistoryTemplate.content.cloneNode(true);
+                workoutCard.getElementById("exerciseHistory").innerHTML = exercise;
+                workoutCard.getElementById("weightHistory").innerHTML = `Weight <span id="metric">(lb)</span> ${weight}`;
+                workoutCard.getElementById("repsHistory").innerHTML = `Reps: ${reps}`;
+                workoutCard.getElementById("setsHistory").innerHTML = `Sets: ${sets}`;
+                // workoutCard.getElementById("durationHistory").innerHTML = `Duration: ${duration}`;
+
+                // Appends the new workout card to the workoutHistoryGroup HTML element
+                workoutHistoryGroup.appendChild(workoutCard);
+            });
+        });
+}
+

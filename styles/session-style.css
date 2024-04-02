@@ -34,9 +34,9 @@
     padding-left: 30px;
     padding-right: 30px;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         'exercise exercise exercise'
-        'weight sets reps'
+        'weight reps sets'
         'wheel wheel wheel';
     grid-template-columns: 33% 33% 33%;
 }
@@ -53,6 +53,7 @@
     width: 100px;
     float: right;
 }
+
 #drop {
     width: 100%;
 }
@@ -86,6 +87,7 @@
     justify-content: center;
     align-items: center;
 }
+
 #setForm {
     grid-area: sets;
     display: flex;
@@ -93,6 +95,7 @@
     justify-content: center;
     align-items: center;
 }
+
 #repForm {
     grid-area: reps;
     display: flex;
@@ -100,7 +103,8 @@
     justify-content: center;
     align-items: center;
 }
-#durationForm{
+
+#durationForm {
     grid-area: sets;
     display: none;
     flex-direction: column;
@@ -128,7 +132,7 @@
     height: 160px;
 }
 
-#setsWheel {
+#repsWheel {
     grid-area: mid;
     display: flex;
     flex-direction: column;
@@ -136,7 +140,8 @@
     align-items: center;
     height: 160px;
 }
-#repsWheel {
+
+#setsWheel {
     grid-area: right;
     display: flex;
     flex-direction: column;
@@ -186,4 +191,29 @@
 .reps::-webkit-scrollbar {
     display: none;
     /* Hide scrollbar */
+}
+
+/* history below */
+
+#subtitle {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom: solid rgb(255, 255, 255);
+}
+
+.history-main-container {
+    width: 95%;
+    margin: auto;
+    margin-top: 30px;
+    height: fit-content;
+    background-color: #1d2d44;
+    border-radius: 10px;
+    max-width: 1000px;
+    color: white;
+    text-align: center;
+}
+
+#exerciseHistory {
+    font-weight: bold;
 }
