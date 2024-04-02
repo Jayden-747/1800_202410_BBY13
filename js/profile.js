@@ -102,6 +102,7 @@ firebase.auth().onAuthStateChanged((user) => {
                     <p><strong>Reps:</strong>&nbsp;${reps}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     <p><strong>Weight:</strong>&nbsp;${weight}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     <p><strong>Duration:</strong>&nbsp;${duration}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Activity Date:&nbsp;${workoutDate}</strong>
                 `;
 
           // Apply CSS to the paragraphs within the list item
