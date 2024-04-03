@@ -98,6 +98,41 @@ li {
   object-fit: cover;
 }
 
+#pfp:hover {
+  opacity: 0.75;
+}
+
+figure {
+  margin: 0;
+  width: 175px;
+  height: 175px;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+figcaption {
+  color: white;
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  top: 175px;
+  text-align: center;
+  pointer-events: none;
+  display: none;
+}
+
+#pfp-icon {
+  color: rgb(39, 39, 39);
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  top: 245px;
+  text-align: center;
+  pointer-events: none;
+}
+
 .stats {
   background-color: #1d2d44;
   width: 95%;
@@ -192,4 +227,25 @@ li {
 
 .friends-list {
   all: unset;
+}
+
+.pfp-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 0px;
+  margin: 20px 0px;
+  gap: 20px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.pfp {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
 }
