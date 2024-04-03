@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #0d1321;
-  padding-top: 20px;
+  padding-top: 56px;
 }
 
 .radio-canada {
@@ -67,7 +67,6 @@ body {
   color: #0d1321;
 }
 
-
 .btn-lg:hover {
   background-color: white;
   color: #1d2d44;
@@ -94,9 +93,9 @@ li {
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 60px;
-  object-fit: cover;
+  margin-top: 40px;
   margin-bottom: 15px;
+  object-fit: cover;
 }
 
 .stats {
