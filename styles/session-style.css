@@ -105,11 +105,18 @@
 }
 
 #durationForm {
-    grid-area: sets;
+    grid-area: reps;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#closeButton{
+    background-color: #fcbf49;
+}
+
+#exampleModal{
+    transform: translateY(200px);
 }
 
 /* scroll wheel below */

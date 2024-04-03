@@ -72,7 +72,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
     // Query the workouts collection and order by date in descending order
     workoutsRef
-      .orderBy("date", "desc")
+      .orderBy("date")
       .get()
       .then((querySnapshot) => {
         const workoutsContainer = document.querySelector(".friends-list");

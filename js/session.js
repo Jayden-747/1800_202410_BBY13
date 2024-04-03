@@ -180,6 +180,8 @@ function submitSession() {
     var repsValue = document.getElementById('repsInput').value;
     var durationValue = document.getElementById('durationInput').value;
 
+    //
+    var condition = false;
     // Ensures user has selected an exercise.
     if (!exerciseName) {
         alert("Please select an exercise.");
@@ -240,6 +242,7 @@ function submitSession() {
                         // Populate history after successful submission
                         populateWorkoutSessionHistory();
                     })
+                    
 
 
                     .catch(function (error) {
@@ -278,7 +281,8 @@ function submitSession() {
                     }
 
                 })
-
+            // calls the function to open the confirmation screen
+            performAction();
             } else {
                 alert("No such exercise exists, please choose from the dropdown");
             }
@@ -352,3 +356,8 @@ function populateWorkoutSessionHistory() {
         });
 }
 
+// Function for the modal to show up if no error
+function performAction() {
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    myModal.show();
+    }
