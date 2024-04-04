@@ -87,21 +87,23 @@ firebase.auth().onAuthStateChanged((user) => {
 
           const workoutItem = document.createElement("div");
           workoutItem.classList.add("workout-item");
-  
+
           // Update the content of each span with data from Firestore
           workoutItem.innerHTML = `
-            <span>Workout: ${data.exercise}</span>
-            <span>Set: ${data.sets}</span>
-            <span>Rep: ${data.reps}</span>
-            <span>Lbs: ${data.weight}</span>
-            <span>Dur: ${data.duration}</span>
-            <span>Date: ${data.date.toDate().toLocaleDateString()}</span>
+            <span>${data.exercise}</span>
+            <span class="center">${data.sets}</span>
+            <span class="center">${data.reps}</span>
+            <span class="center">${data.weight}</span>
+            <span class="center">${data.duration}</span>
+            <span class="center">${data.date
+              .toDate()
+              .toLocaleDateString()}</span>
           `;
-  
+
           // Append the new workout item to the container
           workoutsContainer.appendChild(workoutItem);
+        });
       });
-    });
   } else {
     // User is not signed in. Handle accordingly.
     console.log("User not signed in.");

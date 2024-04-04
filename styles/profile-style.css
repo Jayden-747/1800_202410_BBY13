@@ -196,6 +196,26 @@ figure {
   grid-template-rows: fit-content;
 }
 
+.list-header {
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+  border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
+  height: 45px;
+  overflow: hidden;
+  display: grid;
+  height: fit-content;
+  grid-template-columns: 30% 10% 10% 10% 20% 20%;
+  grid-template-rows: fit-content;
+  position: sticky;
+  top: 56px;
+  background-color: #1d2d44;
+}
+
+.list-header > span {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .workout:last-child {
   border: hidden;
 }
@@ -226,4 +246,10 @@ figure {
 
 h5 {
   margin-bottom: 8px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
