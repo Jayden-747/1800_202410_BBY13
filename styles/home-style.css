@@ -206,3 +206,15 @@ h5 {
   text-align: center;
   padding-top: 15px;
 }
+
+#myChart{
+  font-size: 22px;
+}
+#myChart .chartjs-render-monitor text {
+  font-size: 16px; /* Adjust font size as needed */
+}
+#chart{
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+

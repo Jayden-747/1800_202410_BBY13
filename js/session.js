@@ -281,7 +281,7 @@ function submitSession() {
                     }
 
                 })
-            // calls the function to open the confirmation screen
+            // calls the function to open the confirmation screen  
             performAction();
             } else {
                 alert("No such exercise exists, please choose from the dropdown");
