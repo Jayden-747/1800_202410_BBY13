@@ -119,3 +119,32 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log("User not signed in.");
   }
 });
+
+function open(content, height) {
+  content.style.cssText =
+    "height: " + height + "; transition: height 0.2s ease-in;";
+  content.style.display = "flex";
+}
+
+function close(content) {
+  content.style.cssText = "height: 0px; transition: height 0.2s ease-in;";
+  setTimeout(function () {
+    // content.style.display = "none";
+  }, 200); // 200 milliseconds = 0.2 seconds
+}
+
+const changePfp = document.querySelector(".pfp-set");
+const pfpContainer = document.querySelector(".pfp-container");
+
+/*
+Change Profile Picture dropdown animation trigger.
+*/
+document.addEventListener("mousedown", function (event) {
+  if (changePfp.contains(event.target)) {
+    console.log("clicked");
+    open(pfpContainer, "220px");
+  } else if (!changePfp.contains(event.target)) {
+    close(pfpContainer);
+    console.log("clicked outside");
+  }
+});
