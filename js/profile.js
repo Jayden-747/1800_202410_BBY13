@@ -72,10 +72,10 @@ firebase.auth().onAuthStateChanged((user) => {
 
     // Query the workouts collection and order by date in descending order
     workoutsRef
-      .orderBy("date")
+      .orderBy("date", "desc")
       .get()
       .then((querySnapshot) => {
-        const workoutsContainer = document.querySelector(".friends-list");
+        const workoutsContainer = document.querySelector(".workout-list");
 
         // Clear existing list items
         workoutsContainer.innerHTML = "";
@@ -85,35 +85,23 @@ firebase.auth().onAuthStateChanged((user) => {
           // Get data from each document
           const data = doc.data();
 
-          // Extract the fields you want to display
-          const workoutName = data.exercise;
-          const workoutDate = data.date.toDate().toLocaleDateString();
-          const sets = data.sets;
-          const reps = data.reps;
-          const weight = data.weight;
-          const duration = data.duration;
-
-          // Create HTML elements to display the extracted fields
-          const workoutListItem = document.createElement("li");
-          workoutListItem.classList.add("friend"); // Add class to match your HTML structure
-          workoutListItem.innerHTML = `
-                    <p><strong>${workoutName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
-                    <p><strong>Sets:</strong>&nbsp;${sets}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>Reps:</strong>&nbsp;${reps}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>Weight:</strong>&nbsp;${weight}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>Duration:</strong>&nbsp;${duration}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Activity Date:&nbsp;${workoutDate}</strong>
-                `;
-
-          // Apply CSS to the paragraphs within the list item
-          workoutListItem.querySelectorAll("p").forEach((p) => {
-            p.style.margin = "5px 0";
-          });
-
-          // Prepend the new list item to the list
-          workoutsContainer.prepend(workoutListItem);
-        });
+          const workoutItem = document.createElement("div");
+          workoutItem.classList.add("workout-item");
+  
+          // Update the content of each span with data from Firestore
+          workoutItem.innerHTML = `
+            <span>Workout: ${data.exercise}</span>
+            <span>Set: ${data.sets}</span>
+            <span>Rep: ${data.reps}</span>
+            <span>Lbs: ${data.weight}</span>
+            <span>Dur: ${data.duration}</span>
+            <span>Date: ${data.date.toDate().toLocaleDateString()}</span>
+          `;
+  
+          // Append the new workout item to the container
+          workoutsContainer.appendChild(workoutItem);
       });
+    });
   } else {
     // User is not signed in. Handle accordingly.
     console.log("User not signed in.");
