@@ -226,4 +226,16 @@ h5 {
   object-fit: cover;
 }
 
+#closeButton {
+  background-color: #fcbf49;
+}
+
+.modal-dialog {
+  color: black;
+}
+
+#exampleModal {
+  transform: translateY(200px);
+}
+
 /* #endregion CHANGE USERNAME SETTING */

@@ -64,23 +64,36 @@ Top level of project folder:
 
 It has the following subfolders and files:
 ├── .git/                          git transmit
-├── .vscode
-    ├── settings.json
+├── .vscode/
+    └── settings.json/
 ├── images/                        images for businesses
-    ├── fitness.jpg/
+    ├── 1upLogo.png/
+    ├── hero-image.jpeg/
+    ├── pfp1.jpg/
+    └── pfp2.jpg/
 ├── js/                            scripts unzipped
     ├── authentication.js/
     ├── calendar.js/
-    ├── script.js/
-    └── skeleton.js/
+    ├── change-pfp.js/
+    ├── firebaseAPI-bby13.js/
+    ├── friends.js/
+    ├── home.js/
+    ├── profile.js/
+    ├── session.js/
+    ├── settings.js/
+    ├── skeleton.js/
+    └── username.js/
 ├── styles/                        style files
+    ├── friends-style.css/
     ├── home-style.css/
+    ├── modal-style.css/
     ├── profile-style.css/
     ├── schedule-style.css/
+    ├── session-style.css/
     ├── settings-style.css/
     └── sign-up-style.css/
 ├── text/
     ├── footer.html/
-    ├── navbar-before-login.html
-    └── navbar.html
+    ├── navbar-before-login.html/
+    └── navbar.html/
 ```

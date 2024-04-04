@@ -29,6 +29,7 @@ pfpChoices.forEach(function (choice) {
     let newPfp = choice.getAttribute("src");
     changePicture(newPfp);
     console.log(newPfp);
+    performAction();
   });
 });
 
@@ -72,3 +73,9 @@ function updateBar() {
   });
 }
 updateBar();
+
+// Function for the modal to show up if no error
+function performAction() {
+  var myModal = new bootstrap.Modal(document.getElementById("exampleModal"));
+  myModal.show();
+}

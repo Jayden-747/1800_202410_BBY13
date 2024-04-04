@@ -36,7 +36,6 @@ body {
 }
 
 #logo {
-  color: white;
   filter: invert(100%);
 }
 
@@ -46,10 +45,13 @@ body {
 
 .navbar-brand {
   color: white;
+  margin-left: 20px;
+  margin-right: 25px;
+  box-sizing: border-box;
 }
 
 .navbar-brand:hover {
-  color: #748cab;
+  border-bottom: solid;
 }
 
 .navbar {
