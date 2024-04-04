@@ -26,6 +26,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link
       type="text/css"
       rel="stylesheet"
@@ -85,11 +86,14 @@
         <div class="header">
           <h5>Sessions this Week:</h5>
           <div class="time">
-            <span id="session-number">10</span>
+            <span id="session-number">1</span>
           </div>
         </div>
       </div>
-      <table class="container">
+      <div id="chart">
+        <canvas id="myChart" style="width:100%;max-width:600px;height:350px;"></canvas>
+      </div>
+      <!-- <table class="container">
         <thead>
           <tr>
             <th class="table-header" scope="col">Weekly Challenges</th>
@@ -110,7 +114,7 @@
             <td class="table-detail-bottom">300 xp</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
 
     <!-- Link to scripts of your own -->
@@ -118,5 +122,6 @@
     <script src="./js/skeleton.js"></script>
     <script src="./js/change-pfp.js"></script>
     <script src="./js/username.js"></script>
+    <script src="./js/home.js"></script>
   </body>
 </html>
