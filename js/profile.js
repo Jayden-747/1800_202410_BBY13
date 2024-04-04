@@ -96,7 +96,7 @@ firebase.auth().onAuthStateChanged((user) => {
           // Create HTML elements to display the extracted fields
           const workoutListItem = document.createElement("li");
           workoutListItem.classList.add("friend"); // Add class to match your HTML structure
-          // workoutListItem.innerHTML = `
+          workoutListItem.innerHTML = `
                     <p><strong>${workoutName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
                     <p><strong>Sets:</strong>&nbsp;${sets}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     <p><strong>Reps:</strong>&nbsp;${reps}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
