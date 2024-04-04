@@ -92,7 +92,6 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
   margin-top: 40px;
   margin-bottom: 15px;
   object-fit: cover;
@@ -107,19 +106,6 @@ figure {
   width: 175px;
   height: 175px;
   margin: auto;
-  margin-bottom: 15px;
-}
-
-figcaption {
-  color: white;
-  position: absolute;
-  left: 25%;
-  right: 25%;
-  width: 50%;
-  top: 175px;
-  text-align: center;
-  pointer-events: none;
-  display: none;
 }
 
 #pfp-icon {
@@ -144,21 +130,6 @@ figcaption {
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
-}
-
-.progress {
-  width: 95%;
-  max-width: 1000px;
-  margin: 10px 18px 15px 18px;
-  background-color: transparent;
-  border: solid rgb(255, 255, 255);
-  border-style: none solid solid solid;
-  border-radius: 0%;
-}
-
-.progress-bar {
-  background-color: #fcbf49;
-  border-right: solid 1px;
 }
 
 .stat-name {
@@ -206,34 +177,37 @@ figcaption {
 }
 
 .header {
-  padding: 10px 10px 8px 10px;
+  padding: 10px 10px 0px 10px;
   width: 100%;
   border-bottom: solid;
   display: flex;
   justify-content: space-between;
 }
 
-.friend {
+.workout {
   width: 100%;
   padding: 10px 15px 10px 15px;
   border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
   height: 45px;
   overflow: hidden;
+  display: grid;
+  height: fit-content;
+  grid-template-columns: 30% 10% 10% 10% 20% 20%;
+  grid-template-rows: fit-content;
 }
 
-.friend:last-child {
+.workout:last-child {
   border: hidden;
 }
 
-.friends-list {
-  all: unset;
+.workout-name {
+  width: 165px;
 }
 
 .pfp-container {
   display: flex;
   flex-wrap: wrap;
   height: 0px;
-  margin: 20px 0px;
   gap: 20px;
   justify-content: center;
   overflow-y: scroll;
@@ -248,4 +222,8 @@ figcaption {
   justify-content: center;
   align-items: center;
   object-fit: cover;
+}
+
+h5 {
+  margin-bottom: 8px;
 }
