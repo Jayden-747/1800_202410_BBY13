@@ -242,8 +242,6 @@ function submitSession() {
                         // Populate history after successful submission
                         populateWorkoutSessionHistory();
                     })
-                    
-
 
                     .catch(function (error) {
                         console.error("Error adding document: ", error);
@@ -281,8 +279,8 @@ function submitSession() {
                     }
 
                 })
-            // calls the function to open the confirmation screen
-            performAction();
+                // calls the function to open the confirmation screen
+                performAction();
             } else {
                 alert("No such exercise exists, please choose from the dropdown");
             }
@@ -303,7 +301,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-
+// Utilizes the workout card template nodes
 function populateWorkoutSessionHistory() {
 
     // Clear the workout history container first (prevents duplicates)
@@ -326,7 +324,7 @@ function populateWorkoutSessionHistory() {
     // Split the string to get the date only
     let sessionID = `${sessionDateAndTime.toLocaleString('default', { month: 'long' })} ${sessionDateAndTime.getDate()}, ${sessionDateAndTime.getFullYear()}`;
 
-    console.log("Session ID:", sessionID);
+    console.log("Date of session:", sessionID);
 
     db.collection('users').doc(user.uid).collection('workouts')
         // Filters current session via current date
@@ -334,13 +332,14 @@ function populateWorkoutSessionHistory() {
         .get()
         .then((allWorkouts) => {
             workouts = allWorkouts.docs;
-            console.log(workouts);
+            console.log("list of workouts: " + workouts);
             workouts.forEach((doc) => {
                 var exercise = doc.data().exercise;
                 var weight = doc.data().weight;
                 var reps = doc.data().reps;
                 var sets = doc.data().sets;
                 var duration = doc.data().duration;
+                var docID = doc.id;
 
                 // cloneNode creates copies of the workoutHistoryTemplate
                 let workoutCard = workoutHistoryTemplate.content.cloneNode(true);
@@ -350,14 +349,59 @@ function populateWorkoutSessionHistory() {
                 workoutCard.getElementById("setsHistory").innerHTML = `Sets: ${sets}`;
                 // workoutCard.getElementById("durationHistory").innerHTML = `Duration: ${duration}`;
 
+                //NOTE:  this is where we assign the Event Listener to the delete button
+                // We pass along the document ID (of the hike) to the Handler function
+                // This ID is a String object, and must be enclosed in quotes 
+                workoutCard.querySelector('button').setAttribute('onclick', 'deleteWorkout("' + docID + '")');
+
                 // Appends the new workout card to the workoutHistoryGroup HTML element
                 workoutHistoryGroup.appendChild(workoutCard);
             });
         });
 }
 
+function deleteWorkout(id) {
+    console.log("delete workout with id " + id);
+
+    db.collection("users").doc(firebase.auth().currentUser.uid).collection("workouts").doc(id).delete().then(() => {
+        console.log("Document succesfully deleted!");
+        location.reload();   //refresh page
+    }).catch( (error) => {
+        console.error("error removing document: ", error);
+    });
+    
+}
+
 // Function for the modal to show up if no error
 function performAction() {
     var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
     myModal.show();
-    }
+}
+
+// Uncomment (for now?) because it only deletes exercise from webpage, not firebase
+// // Deletes a workout from the user's workout selection
+// function deleteExercise(button) {
+//     var workoutCard = button.parentNode;
+
+//     // Deletes from webpage, not from firestore (yet!)
+//     workoutCard.remove();
+
+//     // Deletes from firestore
+//     const exerciseID = workoutCard.exerciseSessionID;
+//     console.log(exerciseID);
+
+//     if (!exerciseID) {
+//         console.log("Exercise ID not found!");
+//         alert("Exercise ID not found");
+//         return;
+//     }
+
+//     db.collection('users').doc(firebase.auth().currentUser.uid).collection('workouts').doc(exerciseID)
+//         .delete()
+//         .then(function () {
+//             console.log("Exercise deleted successfully");
+//         })
+// }
+
+
+
