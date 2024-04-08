@@ -35,16 +35,23 @@ body {
   font-variation-settings: "width" 100;
 }
 
+#logo {
+  filter: invert(100%);
+}
+
 .container {
   background-color: #1d2d44;
 }
 
 .navbar-brand {
   color: white;
+  margin-left: 20px;
+  margin-right: 25px;
+  box-sizing: border-box;
 }
 
 .navbar-brand:hover {
-  color: #748cab;
+  border-bottom: solid;
 }
 
 .navbar {
@@ -207,14 +214,13 @@ h5 {
   padding-top: 15px;
 }
 
-#myChart{
+#myChart {
   font-size: 22px;
 }
 #myChart .chartjs-render-monitor text {
   font-size: 16px; /* Adjust font size as needed */
 }
-#chart{
+#chart {
   margin-top: 25px;
   margin-bottom: 50px;
 }
-

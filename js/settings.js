@@ -55,6 +55,7 @@ document.getElementById("submit").addEventListener("click", function () {
       username: document.getElementById("user-input").value,
     });
   console.log("username set");
+  performAction();
 });
 
 let userID;

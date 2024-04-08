@@ -216,7 +216,7 @@ h5 {
 }
 
 .pfp {
-  background-color: white;
+  background-color: transparent;
   height: 100px;
   width: 100px;
   border-radius: 6em;
@@ -224,6 +224,18 @@ h5 {
   justify-content: center;
   align-items: center;
   object-fit: cover;
+}
+
+#closeButton {
+  background-color: #fcbf49;
+}
+
+.modal-dialog {
+  color: black;
+}
+
+#exampleModal {
+  transform: translateY(200px);
 }
 
 /* #endregion CHANGE USERNAME SETTING */
