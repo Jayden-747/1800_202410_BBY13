@@ -1,12 +1,12 @@
 const user = firebase.auth.currentUser;
 
-/* 
-Makes the div expand to the desired height with an animation
-element = html element to change 
-arrow = the arrow to be rotated 
-content = the element inside the setting option
-height = the height the animation ends at 
-*/
+/**
+ * Makes the div expand to the desired height with an animation
+ * @param element html element to change
+ * @param arrow the arrow to be rotated
+ * @param content the element inside the setting option
+ * @param height the height the animation ends at
+ */
 function open(element, arrow, content, height) {
   element.style.cssText =
     "height: " + height + "; transition: height 0.2s ease-in;";
@@ -14,12 +14,12 @@ function open(element, arrow, content, height) {
   content.style.display = "flex";
 }
 
-/* 
-Closes the div when clicked outside of
-element = html element to change 
-arrow = the arrow to be rotated 
-content = the element inside the setting option
-*/
+/**
+ * Closes the div when clicked outside of
+ * @param element html element to change
+ * @param arrow the arrow to be rotated
+ * @param content the element inside the setting option
+ */
 function close(element, arrow, content) {
   element.style.cssText = "height: 45px; transition: height 0.2s ease-in;";
   arrow.style.cssText = "transform: rotate(90deg); transition: 0.2s ease-in;";
