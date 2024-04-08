@@ -39,8 +39,8 @@
       rel="stylesheet"
     />
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/profile-style.css" />
     <link rel="stylesheet" href="./styles/home-style.css" />
+    <link rel="stylesheet" href="./styles/profile-style.css" />
     <script
       src="https://kit.fontawesome.com/905cc044ff.js"
       crossorigin="anonymous"
@@ -53,17 +53,34 @@
     <nav id="navbar"></nav>
 
     <!-- profile picture placeholder -->
-    <img
-      id="pfp" 
-      src=""
-      alt="Profile Picture"
-      class="pfp-set"
-    />
-    
+    <figure>
+      <img
+        id="pfp"
+        src="/images/pfp1.jpg"
+        alt="Profile Picture"
+        class="pfp-set"
+      />
+      <span id="pfp-icon" class="fa-solid fa-pen-to-square"></span>
+    </figure>
+
+    <!-- New Section -->
+    <div class="pfp-container">
+      <img id="pfp1" class="pfp" src="./images/pfp1.png" />
+      <img id="pfp2" class="pfp" src="./images/pfp2.png" />
+      <img id="pfp3" class="pfp" src="./images/pfp3.png" />
+      <img id="pfp4" class="pfp" src="./images/pfp4.png" />
+      <img id="pfp5" class="pfp" src="./images/pfp5.png" />
+      <img id="pfp6" class="pfp" src="./images/pfp6.png" />
+      <img id="pfp7" class="pfp" src="./images/pfp7.png" />
+      <img id="pfp8" class="pfp" src="./images/pfp8.png" />
+      <img id="pfp9" class="pfp" src="./images/pfp9.png" />
+      <img id="pfp9" class="pfp" src="./images/pfp10.png" />
+    </div>
+
     <!-- progress bars -->
     <div>
       <div class="main-grid">
-        <h2 id="username"></h2>
+        <h2 id="username">Username</h2>
         <div class="level-title">
           <div class="stat-name">
             <div>Level</div>
@@ -71,10 +88,11 @@
           </div>
           <div class="xp-count">
             <div class="xp">
-            <!-- DIV FOR LEVEL NUMBER -->
-            <div id="levelXP"></div>
-            <!-- DIV FOR LEVEL NUMBER -->
-            <div>&nbsp;/ 100</div>
+              <!-- DIV FOR LEVEL NUMBER -->
+              <div id="levelXP"></div>
+              <!-- DIV FOR LEVEL NUMBER -->
+              <div>&nbsp;/ 100</div>
+            </div>
           </div>
         </div>
       </div>
@@ -162,16 +180,39 @@
         </div>
       </div>
       <div class="container">
-      <div class="header">
-        <h5>Previous Workouts</h5>
-      </div>
-      <ul class="friends-list"></ul>
-    </div>
-    </div>
+        <div class="header">
+          <h5>Previous Workouts</h5>
+        </div>
+        <div class="list-header">
+          <span>Workout:</span>
+          <span class="center">Set:</span>
+          <span class="center">Rep:</span>
+          <span class="center">Lbs:</span>
+          <span class="center">Dur:</span>
+          <span class="center">Date:</span>
+        </div>
+        <div class="workout-list">
+          <div class="workout">
+            <span>Workout:</span>
+            <span>set:</span>
+            <span>rep:</span>
+            <span>lbs:</span>
+            <span>dur:</span>
+            <span>date:</span>
+          </div>
+          <!-- THIS IS THE LAYOUT FOR THE STATS TO USE -->
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+          <!-- <div class="workout-list">
+          <span id="workout">1</span>
+          <span id="set">1</span>
+          <span id="rep">1</span>
+          <span id="lbs">1</span>
+          <span id="dur">1</span>
+          <span id="date">1</span>
+        </div> -->
+        </div>
+      </div>
+    </div>
 
     <!-- Link to scripts of your own -->
     <script src="./js/firebaseAPI-bby13.js"></script>

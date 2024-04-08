@@ -72,10 +72,10 @@ firebase.auth().onAuthStateChanged((user) => {
 
     // Query the workouts collection and order by date in descending order
     workoutsRef
-      .orderBy("date")
+      .orderBy("date", "desc")
       .get()
       .then((querySnapshot) => {
-        const workoutsContainer = document.querySelector(".friends-list");
+        const workoutsContainer = document.querySelector(".workout-list");
 
         // Clear existing list items
         workoutsContainer.innerHTML = "";
@@ -85,37 +85,56 @@ firebase.auth().onAuthStateChanged((user) => {
           // Get data from each document
           const data = doc.data();
 
-          // Extract the fields you want to display
-          const workoutName = data.exercise;
-          const workoutDate = data.date.toDate().toLocaleDateString();
-          const sets = data.sets;
-          const reps = data.reps;
-          const weight = data.weight;
-          const duration = data.duration;
+          const workoutItem = document.createElement("div");
+          workoutItem.classList.add("workout-item");
 
-          // Create HTML elements to display the extracted fields
-          const workoutListItem = document.createElement("li");
-          workoutListItem.classList.add("friend"); // Add class to match your HTML structure
-          workoutListItem.innerHTML = `
-                    <p><strong>${workoutName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
-                    <p><strong>Sets:</strong>&nbsp;${sets}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>Reps:</strong>&nbsp;${reps}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>Weight:</strong>&nbsp;${weight}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>Duration:</strong>&nbsp;${duration}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Activity Date:&nbsp;${workoutDate}</strong>
-                `;
+          // Update the content of each span with data from Firestore
+          workoutItem.innerHTML = `
+            <span>${data.exercise}</span>
+            <span class="center">${data.sets}</span>
+            <span class="center">${data.reps}</span>
+            <span class="center">${data.weight}</span>
+            <span class="center">${data.duration}</span>
+            <span class="center">${data.date
+              .toDate()
+              .toLocaleDateString()}</span>
+          `;
 
-          // Apply CSS to the paragraphs within the list item
-          workoutListItem.querySelectorAll("p").forEach((p) => {
-            p.style.margin = "5px 0";
-          });
-
-          // Prepend the new list item to the list
-          workoutsContainer.prepend(workoutListItem);
+          // Append the new workout item to the container
+          workoutsContainer.appendChild(workoutItem);
         });
       });
   } else {
     // User is not signed in. Handle accordingly.
     console.log("User not signed in.");
+  }
+});
+
+function open(content, height) {
+  content.style.cssText =
+    "height: " + height + "; transition: height 0.2s ease-in;";
+  content.style.display = "flex";
+}
+
+function close(content) {
+  content.style.cssText = "height: 0px; transition: height 0.2s ease-in;";
+  setTimeout(function () {
+    // content.style.display = "none";
+  }, 200); // 200 milliseconds = 0.2 seconds
+}
+
+const changePfp = document.querySelector(".pfp-set");
+const pfpContainer = document.querySelector(".pfp-container");
+
+/*
+Change Profile Picture dropdown animation trigger.
+*/
+document.addEventListener("mousedown", function (event) {
+  if (changePfp.contains(event.target)) {
+    console.log("clicked");
+    open(pfpContainer, "235px");
+  } else if (!changePfp.contains(event.target)) {
+    close(pfpContainer);
+    console.log("clicked outside");
   }
 });

@@ -92,38 +92,44 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
   margin-top: 40px;
   margin-bottom: 15px;
   object-fit: cover;
+}
+
+#pfp:hover {
+  opacity: 0.75;
+}
+
+figure {
+  margin: 0;
+  width: 175px;
+  height: 175px;
+  margin: auto;
+}
+
+#pfp-icon {
+  color: rgb(39, 39, 39);
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  top: 245px;
+  text-align: center;
+  pointer-events: none;
 }
 
 .stats {
   background-color: #1d2d44;
   width: 95%;
   height: fit-content;
-  padding-bottom: 5px;
+  padding-bottom: 20px;
   padding-top: 10px;
   margin-top: 2em;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
-}
-
-.progress {
-  width: 95%;
-  max-width: 1000px;
-  margin: 10px 18px 15px 18px;
-  background-color: transparent;
-  border: solid rgb(255, 255, 255);
-  border-style: none solid solid solid;
-  border-radius: 0%;
-}
-
-.progress-bar {
-  background-color: #fcbf49;
-  border-right: solid 1px;
 }
 
 .stat-name {
@@ -171,25 +177,83 @@ li {
 }
 
 .header {
-  padding: 10px 10px 8px 10px;
+  padding: 10px 10px 0px 10px;
   width: 100%;
   border-bottom: solid;
   display: flex;
   justify-content: space-between;
 }
 
-.friend {
+.workout-item {
   width: 100%;
   padding: 10px 15px 10px 15px;
   border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
   height: 45px;
   overflow: hidden;
+  display: grid;
+  height: fit-content;
+  grid-template-columns: 30% 10% 10% 10% 20% 20%;
+  grid-template-rows: fit-content;
 }
 
-.friend:last-child {
+.list-header {
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+  border-bottom: solid 0.3px rgba(255, 255, 255, 0.178);
+  height: 45px;
+  overflow: hidden;
+  display: grid;
+  height: fit-content;
+  grid-template-columns: 30% 10% 10% 10% 20% 20%;
+  grid-template-rows: fit-content;
+  position: sticky;
+  top: 56px;
+  background-color: #1d2d44;
+}
+
+.list-header > span {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.workout:last-child {
   border: hidden;
 }
 
-.friends-list {
-  all: unset;
+.workout-name {
+  width: 165px;
+}
+
+.pfp-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 0px;
+  gap: 20px;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.pfp {
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  border-radius: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+#pfp-icon {
+  color: #fcbf49;
+}
+
+h5 {
+  margin-bottom: 8px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
