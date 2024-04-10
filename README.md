@@ -2,8 +2,7 @@
 
 ## 1. Project Description
 
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ...
+One Up is a browser based web app used for fitness tracking. One Up offers a gamified experience to the fitness apps we all know. With each workout you will gain experience towards your account allowing you to level up and see your progress in real time. This is used to keep you motivated and able to set goals in a fun and entertaining way.
 
 ## 2. Names of Contributors
 
@@ -11,7 +10,7 @@ List team members and/or short bio's here...
 
 - Neriyel Reyes. I like to crochet.!!
 - Tommy Phuong. I like food.
-- Jayden Hutchinson. Most my free time is spent playing video games
+- Jayden Hutchinson. First year CST student, My biggest past time is gaming.
 
 ## 3. Technologies and Resources Used
 
@@ -20,7 +19,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 - HTML, CSS, JavaScript
 - Bootstrap 5.0 (Frontend library)
 - Firebase 8.0 (BAAS - Backend as a Service)
-- ...
+- Adobe Stock images (pfp1 - pfp10)
+- FontAwsome
+- Google Fonts (Rubik)
 
 ## 4. Complete setup/installion/usage
 
@@ -35,17 +36,18 @@ Here are the steps ...
 
 Here are some known bugs:
 
-- ...
-- ...
-- ...
+- 
 
 ## 6. Features for Future
 
 What we'd like to build in the future:
 
-- ...
-- ...
-- ...
+- Friends list
+- Ability to view friends profiles
+- Ability to compete with your friends
+- Weekly and daily challenges
+- Visual representation of progress
+- Achievements
 
 ## 7. Contents of Folder
 
