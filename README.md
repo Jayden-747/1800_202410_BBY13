@@ -53,14 +53,17 @@ Content of the project folder:
 
 ```
 Top level of project folder:
-├── .gitignore/               git ignore file
+├── gitignore/                git ignore file
+├── friends.html/             friends HTML file, where to see your friends list or add friends
 ├── home.html/                home HTML file, what you see when you log in
 ├── landing.html/             landing HTML file, what you see when you come to the site
 ├── log-in.html.html/         log in HTML file, where you log in or create an account
+├── new-page-template.html/   used to create a new page
 ├── profile.html/             profile HTML file, where to manage and edit your profile stats
+├── README.md/
 ├── schedule.htlm/            schedule HTML file, where to schedule workouts and personal plans
-├── settings.html/            settings HTML file, where to edit any settings you might want to change
-└── README.md/
+├── session.htlm/             Session HTML file, where to track a workout you've just performed
+└── settings.html/            settings HTML file, where to edit any settings you might want to change
 
 It has the following subfolders and files:
 ├── .git/                          git transmit
@@ -69,8 +72,16 @@ It has the following subfolders and files:
 ├── images/                        images for businesses
     ├── 1upLogo.png/
     ├── hero-image.jpeg/
-    ├── pfp1.jpg/
-    └── pfp2.jpg/
+    ├── pfp1.png/
+    ├── pfp2.png/
+    ├── pfp3.png/
+    ├── pfp4.png/
+    ├── pfp5.png/
+    ├── pfp6.png/
+    ├── pfp7.png/
+    ├── pfp8.png/
+    ├── pfp9.png/
+    └── pfp10.png/
 ├── js/                            scripts unzipped
     ├── authentication.js/
     ├── calendar.js/
