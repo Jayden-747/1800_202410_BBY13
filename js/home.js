@@ -1,6 +1,7 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
       // User is signed in, call the function
+      updateSessionNumber();
   } else {
       console.log("No user is currently logged in.");
       // Handle the case when no user is logged in
