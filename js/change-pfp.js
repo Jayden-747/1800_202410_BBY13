@@ -77,7 +77,9 @@ function updateBar() {
 }
 updateBar();
 
-// Function for the modal to show up if no error
+/**
+ * Modal to show up if no error
+ */
 function performAction() {
   var myModal = new bootstrap.Modal(document.getElementById("exampleModal"));
   myModal.show();

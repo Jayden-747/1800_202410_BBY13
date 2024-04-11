@@ -2,6 +2,9 @@
 // This function loads the parts of your skeleton
 // (navbar, footer, and other things) into html doc.
 //---------------------------------------------------
+/**
+ * Loads the navbar onto each page
+ */
 function loadSkeleton() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -19,6 +22,9 @@ function loadSkeleton() {
 }
 loadSkeleton(); //invoke the function
 
+/**
+ * Logs the user out
+ */
 function logout() {
   firebase
     .auth()
@@ -31,4 +37,3 @@ function logout() {
       // An error happened.
     });
 }
-

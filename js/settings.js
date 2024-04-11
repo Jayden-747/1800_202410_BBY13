@@ -2,6 +2,7 @@ const user = firebase.auth.currentUser;
 
 /**
  * Makes the div expand to the desired height with an animation
+ *
  * @param element html element to change
  * @param arrow the arrow to be rotated
  * @param content the element inside the setting option
@@ -16,6 +17,7 @@ function open(element, arrow, content, height) {
 
 /**
  * Closes the div when clicked outside of
+ *
  * @param element html element to change
  * @param arrow the arrow to be rotated
  * @param content the element inside the setting option
