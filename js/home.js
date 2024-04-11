@@ -1,3 +1,9 @@
+/**
+ * Checks to see if the user is logged in and performs the update session function.
+ * Had to do this due to the async nature of javascript
+ * @param user if current user is logged in
+ */
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in, call the function
@@ -53,7 +59,10 @@ function updateSessionNumber() {
 // Initialize myChart variable
 let myChart;
 
-// Listen for authentication state changes
+/**
+ * Updates the pie chart on the home page with values based on the user's stats
+ * @param user if current user is logged in
+ */
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is logged in, proceed with fetching user data
@@ -86,7 +95,10 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
-// Initialize the chart
+
+/**
+ * Bootstrap pie chart.
+ */
 var xValues = ["Strength", "Stamina", "Speed"];
 var yValues = [55, 49, 44];
 var barColors = ["#b91d47", "#00aba9", "#2b5797"];

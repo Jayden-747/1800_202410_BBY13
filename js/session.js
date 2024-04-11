@@ -1,3 +1,7 @@
+/**
+ * Function called in the console of the html page to add workouts into the database
+ * Add workouts in the same format as below
+ */
 function dataExercise() {
   var exerRef = db.collection("exercises");
 
@@ -9,7 +13,9 @@ function dataExercise() {
   });
 }
 
-//function to populate the dropdown menu with exercises from the database.
+/**
+ * function to populate the dropdown menu with exercises from the database.
+ */
 function populateDrop() {
   const dropdown = document.getElementById("drop");
   dropdown.innerHTML = '<option value="">Select an option..</option>';
@@ -74,7 +80,9 @@ function handleExerciseSelection() {
       }
     });
 }
-//event listener for when exercise is chosen - any exercise chosen calls the handle exercise function
+/**
+ * event listener for when exercise is chosen - any exercise chosen calls the handle exercise function
+ */
 document
   .getElementById("drop")
   .addEventListener("change", handleExerciseSelection);

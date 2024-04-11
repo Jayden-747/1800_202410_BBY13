@@ -1,4 +1,7 @@
-// Grabs stat fields from users that are logged in and updates the progress bars' width to match
+/**
+ *  Grabs stat fields from users that are logged in and updates the progress bars' width to match
+ * For every 100 points it icrements the level html.
+ */
 function updateBar() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if user is signed in:
@@ -63,6 +66,12 @@ function updateBar() {
 // Call the function to initially update the progress bar
 updateBar();
 
+
+/**
+ * Populates the html page with workouts of the user's collection in descending order from date.
+ * Also displays the data that is attached to them.
+ * @param user current user id
+ */
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     const workoutsRef = db
