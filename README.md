@@ -36,7 +36,7 @@ Here are the steps ...
 
 Here are some known bugs:
 
-- 
+-
 
 ## 6. Features for Future
 
@@ -58,7 +58,7 @@ Top level of project folder:
 ├── gitignore/                git ignore file
 ├── friends.html/             friends HTML file, where to see your friends list or add friends
 ├── home.html/                home HTML file, what you see when you log in
-├── landing.html/             landing HTML file, what you see when you come to the site
+├── index.html/               landing HTML file, what you see when you come to the site
 ├── log-in.html.html/         log in HTML file, where you log in or create an account
 ├── new-page-template.html/   used to create a new page
 ├── profile.html/             profile HTML file, where to manage and edit your profile stats
