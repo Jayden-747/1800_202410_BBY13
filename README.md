@@ -35,7 +35,8 @@ Here are the steps ...
 
 Here are some known bugs:
 
--
+-When removing a workout from the user's workout collection the stats that were added to the users profile from that workout do not remove accordingly.
+-Deleting a Stamina type workout does not remove the document from the collection.
 
 ## 6. Features for Future
 
