@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
+// Adds event listener to all images in the change pfp setting
 pfpChoices.forEach(function (choice) {
   choice.addEventListener("click", function () {
     let newPfp = choice.getAttribute("src");
@@ -33,11 +34,13 @@ pfpChoices.forEach(function (choice) {
   });
 });
 
+// Grabs the pfp from the database to display on home and profile page
 function currentPfp(userNumber) {
   let newPfp = db.collection("users").doc(userNumber);
   console.log(newPfp);
 }
 
+// Updates database with the selected pfp in settings
 function changePicture(newPfp) {
   db.collection("users").doc(userNumber).update({ profile_picture: newPfp });
 }

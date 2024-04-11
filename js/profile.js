@@ -110,12 +110,21 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
+/**
+ * Dropdown animation for the settings
+ * @param content The div to augment
+ * @param height The height to set the div to
+ */
 function open(content, height) {
   content.style.cssText =
     "height: " + height + "; transition: height 0.2s ease-in;";
   content.style.display = "flex";
 }
 
+/**
+ * Undo the open method
+ * @param content The div to close
+ */
 function close(content) {
   content.style.cssText = "height: 0px; transition: height 0.2s ease-in;";
   setTimeout(function () {

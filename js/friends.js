@@ -1,4 +1,7 @@
 var currentUser;
+/**
+ * This page is incomplete.
+ */
 
 function userID() {
   firebase.auth().onAuthStateChanged((user) => {
