@@ -79,14 +79,13 @@ document
   .getElementById("drop")
   .addEventListener("change", handleExerciseSelection);
 
-//TODO ADD ARGUMENT DESCRIPTION
 /**
- * SCROLL WHEEL FUNCTIONS:
+ * SCROLL WHEEL FUNCTIONS FOR REPS AND SETS:
  *  generates (an array of) the options for sets and reps
  *
- * @param start
- * @param end
- * @returns
+ * @param start is the initial value in the range.
+ * @param end is the last value in the range.
+ * @returns all the values from 'start' to 'end'.
  */
 function generateOptions(start, end) {
   const options = [];
@@ -95,8 +94,15 @@ function generateOptions(start, end) {
   }
   return options;
 }
-
-// Populates the options for sets and reps
+/**
+ * POPULATES THE REPS AND SETS SCROLL WHEEL:
+ *  retrieves the array values from generateOptions and populates it in the sets and reps scrollwheel on the html page.
+ * 
+ * @param {*} selector is the placeholder for an html selector (the scrollwhell div).
+ * @param {*} start is the intial value in the range.
+ * @param {*} end is the end value in the range.
+ * @param {*} inputElement is the placeholder for an html selector (the reps and sets form div).
+ */
 function populatePicker(selector, start, end, inputElement) {
   const picker = document.querySelector(selector);
   const options = generateOptions(start, end);
@@ -131,7 +137,14 @@ populatePicker(".sets", 1, 10, currentSet);
 const currentReps = document.getElementById("repsInput");
 populatePicker(".reps", 1, 99, currentReps);
 
-// Separate functions for weight input (different increments)
+/**
+ * POPULATES THE WEIGHTS SCROLL WHEEL:
+ *  generates (an array of) the options for weights (increments of 2.5).
+ * 
+ * @param {*} start is the intial value in the range.
+ * @param {*} end is the last value in the range.
+ * @returns all the values from 'start' to 'end'.
+ */
 function generateWeightOptions(start, end) {
   const options = [];
   for (let i = start; i <= end; i = i + 2.5) {
@@ -140,7 +153,14 @@ function generateWeightOptions(start, end) {
   return options;
 }
 
-// Populates the options for weights starting from 2.5 and increasing by 2.5
+/**
+ * SCROLLWHEEL FUNCTIONS FOR WEIGHTS:
+ *  retrieves the array values from generateOptions and populates it in the weights scrollwheel on the html page.
+ * @param {*} start is the intial value in the range for the scrollwheel.
+ * @param {*} end is the last value in the range for the scrollwheel.
+ * @param {*} increment is the increment amount.
+ * @param {*} inputElement is the placeholder for an html selector (the weights form div).
+ */
 function populateWeightPicker(start, end, increment, inputElement) {
   const picker = document.querySelector(".weight");
   const options = generateWeightOptions(start, end, increment);
@@ -299,7 +319,7 @@ function submitSession() {
     });
 }
 
-// populates the workout history of current session, listens for authentication state changes
+// Populates the workout history of current session, listens for authentication state changes
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in. You can call functions that require authentication here.
