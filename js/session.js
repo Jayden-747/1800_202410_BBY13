@@ -79,10 +79,9 @@ document
   .getElementById("drop")
   .addEventListener("change", handleExerciseSelection);
 
-//TODO ADD ARGUMENT DESCRIPTION
 /**
  * SCROLL WHEEL FUNCTIONS:
- *  generates (an array of) the options for sets and reps
+ * generates (an array of) the options for sets and reps
  *
  * @param start
  * @param end
